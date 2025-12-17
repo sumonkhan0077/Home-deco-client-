@@ -1,4 +1,5 @@
 import React from "react";
+import './home.css'
 import image1 from "../../assets/image1.jpg";
 import image2 from "../../assets/image2.jpg";
 import image3 from "../../assets/image3.jpg";
@@ -7,13 +8,17 @@ import imagepng from "../../assets/pngimage.png";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link } from "react-router";
 import CategoryHome from "./Shared/CategoryHome/CategoryHome.jsx";
+import NewsLetters from "./Shared/NewsLetters/NewsLetters.jsx";
+import TopCard from "./Shared/TopCard/TopCard.jsx";
+import QuestionAnswer from "./Shared/QuestionAnswer/QuestionAnswer.jsx";
+import TopEventer from "./Shared/TopEventer/TopEventer.jsx";
 
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       
-      <header className="bg-[#213943] dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300  flex flex-col">
+      <header className=" bg-[#213943] dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300  flex flex-col">
         {/* MAIN */}
         <main className="flex-1 ">
           {/* HERO */}
@@ -101,6 +106,10 @@ const Home = () => {
       </header>
       
       <CategoryHome/>
+      <TopCard/>
+      <TopEventer/>
+      <QuestionAnswer/>
+      <NewsLetters/>
     </div>
   );
 };

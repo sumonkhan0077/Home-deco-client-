@@ -2,14 +2,22 @@
 @plugin "daisyui";
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
 
-
-* {
-  font-family: "Cormorant", serif;
-
+@layer base {
+  html {
+    font-family: "Marcellus", serif;
+  }
 }
 
+/* number override (future use) */
+@layer utilities {
+  .number {
+    font-family: "Marcellus", serif;
+  }
+}
+
+/* DaisyUI config */
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark;
 }
@@ -21,12 +29,13 @@
   default: true;
   --color-primary:  #c55626;
   --color-secondary: red;
-  --color-third: #213943
-
+  --color-third: #213943;
 }
+
 body {
   background-color: #fffaec;
 }
+
 
 li a.active{
   @apply bg-[#c55626] rounded-2xl text-white
@@ -51,6 +60,11 @@ li a.active{
  .main-btn2 {
     @apply px-6 py-3 rounded-full bg-primary  text-white  border border-primary hover:bg-transparent  hover:text-primary transition-all duration-300;;
   }
+
+  .swiper-button-next,
+.swiper-button-prev {
+  color: #f59e0b; /* amber-500 */
+}
 
  
 
