@@ -11,7 +11,7 @@ const Navbar = () => {
       </li>
       <li>
         {" "}
-        <NavLink to="/all_products">All Products</NavLink>
+        <NavLink to="/services">Services</NavLink>
       </li>
       <li>
         {" "}
@@ -19,7 +19,7 @@ const Navbar = () => {
       </li>
       <li>
         {" "}
-        <NavLink to="/my_products">My Product</NavLink>
+        <NavLink to="/contract">Contract</NavLink>
       </li>
       <li>
         {" "}
@@ -60,7 +60,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-primary rounded-box z-100 mt-3 w-50 p-2 pl-4 shadow"
+              className=" menu-sm dropdown-content bg-primary rounded-box z-100 mt-3 w-50 p-2 pl-4 shadow"
             >
               {items}
               

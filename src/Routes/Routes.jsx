@@ -8,6 +8,8 @@ import LogIn from "../Pages/Auth/LogIn/LogIn";
 import Register from "../Pages/Auth/Register/Register";
 import Coverage from '../Pages/Coverage/Coverage';
 import AboutUs from '../Pages/AboutUs/AboutUs';
+import Contract from '../Pages/Contract/Contract';
+import Services from '../Pages/Services/Services';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
             {
                 path:'about-us',
                 element: <AboutUs/>
+            },
+            {
+                path:'contract',
+                element: <Contract/>
+            },
+            {
+                path:'services',
+                element: <Services/>
             },
         ]
     },
