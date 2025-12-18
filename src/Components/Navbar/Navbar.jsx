@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router";
+import Logo from "../Logo/Logo";
 
 const Navbar = () => {
   const items = (
@@ -14,7 +15,7 @@ const Navbar = () => {
       </li>
       <li>
         {" "}
-        <NavLink to="/my_import">My Import</NavLink>
+        <NavLink to="/coverage">Coverage</NavLink>
       </li>
       <li>
         {" "}
@@ -27,7 +28,7 @@ const Navbar = () => {
 
       <li>
         {" "}
-        <NavLink to="/login">Logins</NavLink>
+        <NavLink to="/login">Login</NavLink>
       </li>
       <li>
         {" "}
@@ -36,10 +37,10 @@ const Navbar = () => {
     </>
   );
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-sm">
+    <>
+      <div className="navbar  sticky top-0 z-500 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/5 backdrop-blur-xl  shadow-2xl backdrop-saturate-150">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown ">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,12 +60,13 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-primary rounded-box z-100 mt-3 w-50 p-2 pl-4 shadow"
             >
               {items}
+              
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <Logo></Logo>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{items}</ul>
@@ -78,7 +80,7 @@ const Navbar = () => {
           </a>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

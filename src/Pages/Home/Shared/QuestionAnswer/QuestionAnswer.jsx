@@ -45,7 +45,7 @@ const QuestionAnswer = () => {
     <div className="text-4xl max-w-7xl mx-auto px-6 py-16 lg:px-8 lg:py-24">
       <div className=" mb-16 max-w-7xl mx-auto flex flex-col md:flex-row justify-between  md:items-center  gap-6 border-b border-primary/50 dark:border-white/10 pb-6">
         <div>
-           <span className="text-pri font-medium tracking-widest text-sm uppercase block">
+           <span className="text-secondary font-medium tracking-widest text-sm uppercase block">
               Quick Answers
             </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary dark:text-gray-100 leading-tight ">

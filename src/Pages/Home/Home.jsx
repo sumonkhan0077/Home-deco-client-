@@ -12,6 +12,7 @@ import NewsLetters from "./Shared/NewsLetters/NewsLetters.jsx";
 import TopCard from "./Shared/TopCard/TopCard.jsx";
 import QuestionAnswer from "./Shared/QuestionAnswer/QuestionAnswer.jsx";
 import TopEventer from "./Shared/TopEventer/TopEventer.jsx";
+import MapShow from "./Shared/MapShow/MapShow.jsx";
 
 
 const Home = () => {
@@ -110,6 +111,7 @@ const Home = () => {
       <TopEventer/>
       <QuestionAnswer/>
       <NewsLetters/>
+      <MapShow/>
     </div>
   );
 };

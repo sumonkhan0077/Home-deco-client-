@@ -1,0 +1,140 @@
+import React from "react";
+import { useForm } from "react-hook-form";
+import useAuth from "../../../Hooks/useAuth";
+import { Link, useLocation, useNavigate } from "react-router";
+import SocialLogin from "../SocialLogin/SocialLogin";
+import imagelogin from "../../../assets/login.json";
+import Lottie from "lottie-react";
+
+const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const { signInUser } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogin = (data) => {
+    console.log("form data", data);
+    signInUser(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  return (
+    <div className="min-h-screen" style={{ backgroundColor: "#fffaec" }}>
+      <div className="flex flex-col md:flex-row items-center max-w-7xl mx-auto py-12 px-4 gap-10">
+        {/* ফর্ম সেকশন – ডার্ক ব্যাকগ্রাউন্ড */}
+        <div
+          className="flex-1 rounded-3xl shadow-2xl p-8 md:p-10"
+          style={{ backgroundColor: "#213943" }}
+        >
+          <h3 className="text-4xl font-bold text-center text-white">
+            Welcome back
+          </h3>
+          <p className="text-center text-2xl mt-2" style={{ color: "#c55626" }}>
+            Please Login
+          </p>
+
+          <form className="mt-8 space-y-6" onSubmit={handleSubmit(handleLogin)}>
+            {/* Email */}
+            <div>
+              <label className="label font-medium text-white">Email</label>
+              <input
+                type="email"
+                {...register("email", { required: true })}
+                className="input w-full border-2 rounded-lg py-3 px-4 text-white placeholder-gray-300"
+                style={{
+                  borderColor: "#c55626",
+                  backgroundColor: "#213943",
+                }}
+                placeholder="your@email.com"
+              />
+              {errors.email && (
+                <p className="text-[#c55626] text-sm mt-1">Email is required</p>
+              )}
+            </div>
+
+            {/* Password */}
+            <div>
+              <label className="label font-medium text-white">Password</label>
+              <input
+                type="password"
+                {...register("password", {
+                  required: true,
+                  minLength: {
+                    value: 6,
+                    message: "Password must be 6 characters or longer",
+                  },
+                })}
+                className="input w-full border-2 rounded-lg py-3 px-4 text-white placeholder-gray-300"
+                style={{
+                  borderColor: "#c55626",
+                  backgroundColor: "#213943",
+                }}
+                placeholder="••••••••"
+              />
+              {errors.password?.type === "required" && (
+                <p className="text-[#c55626] text-sm mt-1">
+                  Password is required
+                </p>
+              )}
+              {errors.password?.type === "minLength" && (
+                <p className="text-[#c55626] text-sm mt-1">
+                  {errors.password.message}
+                </p>
+              )}
+            </div>
+
+            <div className="text-right">
+              <a className="link link-hover" style={{ color: "#c55626" }}>
+                Forgot password?
+              </a>
+            </div>
+
+            {/* Login Button */}
+            <button
+              type="submit"
+              className="btn w-full text-lg py-3 rounded-lg font-normal shadow-lg text-white hover:opacity-90 transition"
+              style={{ backgroundColor: "#c55626" }}
+            >
+              Login
+            </button>
+
+            <p className="text-center mt-4 text-white">
+              New to DocorNest?
+              <Link
+                to="/register"
+                state={location.state}
+                className="ml-2 font-normal link link-hover"
+                style={{ color: "#c55626" }}
+              >
+                Register
+              </Link>
+            </p>
+
+            <div className="mt-6">
+              <SocialLogin />
+            </div>
+          </form>
+        </div>
+
+        {/* Lottie Animation – লগইনের জন্য তোমার imagelogin */}
+        <div className="flex-1 flex justify-center items-center">
+          <div className="w-full max-w-md">
+            <Lottie animationData={imagelogin} loop={true} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

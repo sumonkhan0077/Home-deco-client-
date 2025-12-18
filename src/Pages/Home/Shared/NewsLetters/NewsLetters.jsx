@@ -41,9 +41,9 @@ const NewsLetters = () => {
               </p>
 
               {/* FORM */}
-              <form className="w-full max-w-lg mb-6">
+              <form className="w-full max-w-md md:max-w-lg mb-6">
                 <div
-                  className="relative flex items-center bg-white rounded-full p-1.5 shadow-xl transition-transform duration-300 focus-within:scale-[1.02]"
+                  className="relative flex flex-col md:flex-row items-center bg-white rounded-full p-1.5 shadow-xl transition-transform duration-300 focus-within:scale-[1.02]"
                 >
                   <input
                     type="email"

@@ -9,18 +9,23 @@ import {
 } from "lucide-react";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router";
+import { IoPencil } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#213943] text-gray-300 py-12 mt-10">
+    <footer className="bg-[#213943] text-gray-300 py-12 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 bg-[#213943] shadow-xl ring-2 ring-black/30 pt-16 pb-16 pl-6 pr-6 rounded-2xl">
           {/* Logo & Description */}
           <div className="lg:col-span-1">
-            <h1 className="text-4xl font-bold text-white mb-4">JHANVI</h1>
+             <Link to='/'>
+             <div className="mb-5">
+                <span className='text-white text-5xl font-normal'>Decor</span><span className='text-primary text-xl font-normal'>Nest</span>
+            </div>
+        </Link>
             <p className="text-sm leading-relaxed mb-6">
-              the majority have suffered alteration in some form, by injected
-              humour, or randomised words
+             We design spaces that reflect your style and comfort. Our expert decorators bring creativity, quality, and elegance to every home.
             </p>
             <div className="flex space-x-4">
               <a
@@ -60,21 +65,24 @@ const Footer = () => {
                   className="text-orange-500 mt-1 flex-shrink-0"
                 />
                 <p>
-                  1425 E 120th St. Los Angeles,
+                  Dhaka Bangladesh,
                   <br />
-                  CA 90059, United States
+                  CA 90059
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-orange-500 flex-shrink-0" />
                 <div>
                   <p>+369 458 4739</p>
-                  <p>+458 669 4568</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-orange-500 flex-shrink-0" />
-                <p>jhanvi@blog.com</p>
+                <p>decornest@deco.com</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <IoPencil size={18} className="text-orange-500 flex-shrink-0" />
+                <p>Working hours: <br />8AM to 10PM</p>
               </div>
             </div>
           </div>
@@ -85,12 +93,12 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li>
                 <a href="#" className="hover:text-orange-500 transition">
-                  Guide
+                  Design
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-orange-500 transition">
-                  Tourist
+                  Model
                 </a>
               </li>
               <li>
@@ -105,7 +113,7 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#" className="hover:text-orange-500 transition">
-                  Tutorials Page
+                  Decor Page
                 </a>
               </li>
             </ul>
@@ -117,7 +125,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li>
                 <a href="#" className="hover:text-orange-500 transition">
-                  Travel Guide
+                  DecorNest
                 </a>
               </li>
               <li>
@@ -169,7 +177,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-sm">
-          <p>© 2025 Wedesigntech Themes. All Rights Reserved.</p>
+          <p>© 2025 DecorNest. All Rights Reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-orange-500 transition">
               Terms And Condition

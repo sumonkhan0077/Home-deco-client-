@@ -28,7 +28,7 @@
   name: "light";
   default: true;
   --color-primary:  #c55626;
-  --color-secondary: red;
+  --color-secondary: #213943;
   --color-third: #213943;
 }
 
