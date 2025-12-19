@@ -11,6 +11,7 @@ import AboutUs from '../Pages/AboutUs/AboutUs';
 import Contract from '../Pages/Contract/Contract';
 import Services from '../Pages/Services/Services';
 import Dashboard from '../Pages/Dashboard/dashboard';
+import ServiceDetails from '../Pages/ServiceDetails/ServiceDetails';
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path:'services',
                 element: <Services/>
+            },
+           {
+                path: `/services/:id`,
+                element: <ServiceDetails/>
             },
             {
                 path:'dashboard',
