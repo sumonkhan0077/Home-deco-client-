@@ -16,7 +16,7 @@ const TopCard = () => {
   console.log(top_rating);
   return (
     <div className="max-w-7xl mx-auto px-6 mb-20 lg:px-8 ">
-      <div className="flex flex-col md:flex-row justify-between items-end md:items-center mb-10 gap-6 border-b border-primary/50 dark:border-white/10 pb-8">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 border-b border-primary/50 dark:border-white/10 pb-8">
         <div className="max-w-2xl">
           <span className="text-secondary font-medium tracking-widest text-sm uppercase block">
             Explore
@@ -37,18 +37,17 @@ const TopCard = () => {
         </Link>
       </div>
       {/* card */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {top_rating.map((top) => (
           <div key={top._id} className="flex gap-4">
             <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
               {/* Card Image */}
               <div className="relative aspect-square overflow-hidden bg-gray-100">
                 <img
-                  src=""
-                  alt=""
-                  fill
-                  objectFit="cover"
-                  className="transition-transform duration-500 group-hover:scale-105"
+                  src={top.image}
+                  alt={top.service_name}
+                 
+                  className="transition-transform duration-500 group-hover:scale-105 w-full h-full object-cover"
                 />
 
                 {/* Category Badge */}

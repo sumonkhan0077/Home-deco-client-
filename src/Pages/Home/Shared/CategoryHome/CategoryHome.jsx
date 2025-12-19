@@ -58,7 +58,7 @@ const CategoryHome = () => {
     <div className="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark transition-colors duration-300 antialiased ">
       <main className="max-w-7xl mx-auto px-6 py-16 lg:px-8">
         {/* Hero Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end md:items-center mb-16 gap-6 border-b border-primary/50 dark:border-white/10 pb-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 border-b border-primary/50 dark:border-white/10 pb-6">
           <div className="max-w-2xl">
             <span className="text-secondary font-medium tracking-widest text-sm uppercase block">
               Stylish & Affordable
