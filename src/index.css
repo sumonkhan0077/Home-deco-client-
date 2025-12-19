@@ -39,7 +39,7 @@ body {
 
 
 li a.active{
-  @apply bg-[#c55626] rounded-2xl text-white 
+  @apply border border-[#c55626] rounded-2xl text-[#c55626] 
 }
 
  .my-btn {

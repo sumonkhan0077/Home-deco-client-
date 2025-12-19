@@ -77,7 +77,7 @@ const NewsLetters = () => {
                   htmlFor="terms"
                   className="text-sm text-gray-300 cursor-pointer"
                 >
-                  I agree to receive updates about home décor ideas and offers.{" "}
+                  I agree to receive updates about DecorNest ideas and offers.{" "}
                   <a
                     href="#"
                     className="underline decoration-orange-400 
@@ -127,7 +127,7 @@ const NewsLetters = () => {
                 {
                   value: "10+",
                   title: "Years Experience",
-                  desc: "Trusted home décor expertise",
+                  desc: "Trusted DecorNest expertise",
                   icon: <IoHammerOutline />,
                 },
               ].map((item, i) => (

@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import imageRegister from "../../../assets/register.json";
 import Lottie from "lottie-react";
-// import axios from 'axios';
+import axios from 'axios';
 // import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const Register = () => {
@@ -14,46 +14,47 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { registerUser } = useAuth();
+  const { registerUser, updateUserProfile  } = useAuth();
   const location = useLocation();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const axiosSecure = useAxiosSecure();
 
   const handleRegistration = (data) => {
-    // const profileImg = data.photo[0];
+    const profileImg = data.photo[0];
 
     registerUser(data.email, data.password)
       .then(() => {
-        // const formData = new FormData();
-        // formData.append('image', profileImg);
-        // const image_API_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`
-        // axios.post(image_API_URL, formData)
-        //     .then(res => {
-        //         const photoURL = res.data.data.url;
-        //         // create user in the database
-        //         const userInfo = {
-        //             email: data.email,
-        //             displayName: data.name,
-        //             photoURL: photoURL
-        //         }
-        //         axiosSecure.post('/users', userInfo)
-        //             .then(res => {
-        //                 if (res.data.insertedId) {
-        //                     console.log('user created in the database');
-        //                 }
-        //             })
-        //         // update user profile to firebase
-        //         const userProfile = {
-        //             displayName: data.name,
-        //             photoURL: photoURL
-        //         }
-        //         updateUserProfile(userProfile)
-        //             .then(() => {
-        //                 // console.log('user profile updated done.')
-        //                 navigate(location.state || '/');
-        //             })
-        //             .catch(error => console.log(error))
-        //     })
+        const formData = new FormData();
+        formData.append('image', profileImg);
+        const image_API_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`
+        axios.post(image_API_URL, formData)
+            .then(res => {
+                const photoURL = res.data.data.url;
+                // create user in the database
+                // const userInfo = {
+                //     email: data.email,
+                //     displayName: data.name,
+                //     photoURL: photoURL
+                // }
+                // axiosSecure.post('/users', userInfo)
+                //     .then(res => {
+                //         if (res.data.insertedId) {
+                //             console.log('user created in the database');
+                //         }
+                //     })
+                // update user profile to firebase
+                const userProfile = {
+                    displayName: data.name,
+                    photoURL: photoURL
+                }
+                updateUserProfile(userProfile)
+                    .then(() => {
+                        // console.log('user profile updated done.')
+                        navigate(location.state || '/');
+                    })
+                    .catch(error => console.log(error))
+            })
+            
       })
       .catch((error) => {
         console.log(error);
@@ -61,7 +62,7 @@ const Register = () => {
   };
 
   return (
-   <div className="min-h-screen" style={{ backgroundColor: '#fffaec' }}>
+   <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fffaec' }}>
   <div className="flex flex-col md:flex-row items-center max-w-7xl mx-auto py-12 px-4 gap-10">
 
     {/* ফর্ম সেকশন – ডার্ক ব্যাকগ্রাউন্ড */}

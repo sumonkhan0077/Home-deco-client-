@@ -1,8 +1,20 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import Logo from "../Logo/Logo";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  console.log(user)
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const items = (
     <>
       <li>
@@ -30,10 +42,15 @@ const Navbar = () => {
         {" "}
         <NavLink to="/login">Login</NavLink>
       </li>
-      <li>
+      {
+        user && <> 
+         <li>
         {" "}
-        <NavLink to="/register">Register</NavLink>
+        <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
+        </>
+      }
+      
     </>
   );
   return (
@@ -63,7 +80,6 @@ const Navbar = () => {
               className=" menu-sm dropdown-content bg-primary rounded-box z-100 mt-3 w-50 p-2 pl-4 shadow"
             >
               {items}
-              
             </ul>
           </div>
           <Logo></Logo>
@@ -72,12 +88,15 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{items}</ul>
         </div>
         <div className="navbar-end">
-          <a
-            className="group flex items-center gap-2 px-6 py-1 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 dark:border-gray-400 dark:text-gray-300 dark:hover:bg-gray-100 dark:hover:text-gray-900 whitespace-nowrap"
-            href="#"
-          >
-            <span className="font-medium text-lg font-display">Login</span>
-          </a>
+          {user ? (
+            <a onClick={handleLogOut} className=" text-sm px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">
+              Log Out
+            </a>
+          ) : (
+            <Link className="text-sm px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300" to="/login">
+              LogIn
+            </Link>
+          )}
         </div>
       </div>
     </>

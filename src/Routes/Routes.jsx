@@ -10,6 +10,7 @@ import Coverage from '../Pages/Coverage/Coverage';
 import AboutUs from '../Pages/AboutUs/AboutUs';
 import Contract from '../Pages/Contract/Contract';
 import Services from '../Pages/Services/Services';
+import Dashboard from '../Pages/Dashboard/dashboard';
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path:'services',
                 element: <Services/>
+            },
+            {
+                path:'dashboard',
+                element: <Dashboard/>
             },
         ]
     },
