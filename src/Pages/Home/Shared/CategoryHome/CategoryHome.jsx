@@ -1,5 +1,6 @@
 import React from "react";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import { Link } from "react-router";
 
 const cards = [
   {
@@ -66,15 +67,16 @@ const CategoryHome = () => {
               Holistic Interior Services
             </h1>
           </div>
-          <a
+          <Link
+          to='/services'
             className="group flex items-center gap-2 px-6 py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 dark:border-gray-400 dark:text-gray-300 dark:hover:bg-gray-100 dark:hover:text-gray-900 whitespace-nowrap"
-            href="#"
+            
           >
             <span className="font-medium text-lg font-display">Show More</span>
             <span className="text-2xl">
               <MdOutlineArrowOutward />
             </span>
-          </a>
+          </Link>
         </div>
 
         {/* Cards Grid */}

@@ -25,15 +25,16 @@ const TopCard = () => {
             Most Popular Services
           </h1>
         </div>
-        <a
+        <Link 
+        to='/services'
           className="group flex items-center gap-2 px-6 py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 dark:border-gray-400 dark:text-gray-300 dark:hover:bg-gray-100 dark:hover:text-gray-900 whitespace-nowrap"
-          href="#"
+          
         >
           <span className="font-medium text-lg font-display">Show More</span>
           <span className="text-2xl">
             <MdOutlineArrowOutward />
           </span>
-        </a>
+        </Link>
       </div>
       {/* card */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -82,7 +83,9 @@ const TopCard = () => {
                   </div>
 
                   {/* Details Button */}
-                  <Link className="inline-flex items-center px-3 py-2 rounded-full bg-primary  text-white  border border-primary hover:bg-transparent  hover:text-primary transition-all duration-300">
+                  <Link 
+                 to={`/services/${top._id}`}
+                  className="inline-flex items-center px-3 py-2 rounded-full bg-primary  text-white  border border-primary hover:bg-transparent  hover:text-primary transition-all duration-300">
                     View Details
                   </Link>
                 </div>

@@ -22,18 +22,12 @@ const Services = () => {
               Explore
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary dark:text-gray-100 leading-tight">
-              Most Popular Services
+              Our Services
             </h1>
           </div>
-          <a
-            className="group flex items-center gap-2 px-6 py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 dark:border-gray-400 dark:text-gray-300 dark:hover:bg-gray-100 dark:hover:text-gray-900 whitespace-nowrap"
-            href="#"
-          >
-            <span className="font-medium text-lg font-display">Show More</span>
-            <span className="text-2xl">
-              <MdOutlineArrowOutward />
-            </span>
-          </a>
+          <div>
+            
+          </div>
         </div>
         {/* card */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
@@ -59,7 +53,7 @@ const Services = () => {
                 <div className="p-5 flex flex-col grow">
                   <div className="grow">
                     {/* Title */}
-                    <Link className="text-xl h-1/2 font-bold text-secondary mb-2 group-hover:text-primary transition-colors">
+                    <Link className="text-xl h-1/2 font-md text-secondary mb-2 group-hover:text-primary transition-colors">
                       {top.service_name}
                     </Link>
 
@@ -84,7 +78,7 @@ const Services = () => {
                     </div>
 
                     {/* Details Button */}
-                    <Link className="inline-flex items-center px-3 py-2 rounded-full bg-primary  text-white  border border-primary hover:bg-transparent  hover:text-primary transition-all duration-300">
+                    <Link to={`/services/${top._id}`} className="inline-flex items-center px-3 py-2 rounded-full bg-primary  text-white  border border-primary hover:bg-transparent  hover:text-primary transition-all duration-300">
                       View Details
                     </Link>
                   </div>
