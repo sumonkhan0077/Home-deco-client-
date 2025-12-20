@@ -14,6 +14,14 @@ import Services from "../Pages/Services/Services";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 import MyProfile from "../Pages/Dashboard/MyProfile/Myprofile";
+import MyBookings from "../Pages/Dashboard/MyBookings/MyBookings";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import ManageDecorators from "../Pages/Dashboard/ManageDecorators/ManageDecorators";
+import ManageServices from "../Pages/Dashboard/ManageServices/ManageServices";
+import ManageBookings from "../Pages/Dashboard/ManageBookings/ManageBookings";
+import AssignDecorator from "../Pages/Dashboard/AssignDecorator/AssignDecorator";
+import Analytics from "../Pages/Dashboard/Analytics/Analytics";
 
 const router = createBrowserRouter([
   {
@@ -66,15 +74,46 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path:"dashboard",
-    element:<DashboardLayout/>,
-    children:[
-       {
-        path: 'my_profile',
-        element: <MyProfile/>
-       }
-      
-    ]
+    path: "dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <DashboardHome/>,
+      },
+      {
+        path: "my_profile",
+        element: <MyProfile />,
+      },
+      {
+        path: "my_booking",
+        element: <MyBookings />,
+      },
+      {
+        path: "payment_history",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "manage_decorators",
+        element: <ManageDecorators />,
+      },
+      {
+        path: "manage_services",
+        element: <ManageServices />,
+      },
+      {
+        path: "manage_bookings",
+        element: <ManageBookings />,
+      },
+      {
+        path: "assign_decorator",
+        element: <AssignDecorator />,
+      },
+      {
+        path: "analytics",
+        element: <Analytics />,
+      },
+    ],
   },
 ]);
 

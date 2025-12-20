@@ -1,7 +1,10 @@
 import React from "react";
 import { CiDeliveryTruck } from "react-icons/ci";
-import { IoPersonCircleSharp } from "react-icons/io5";
+import { IoAnalyticsSharp, IoPersonAdd, IoPersonCircleSharp } from "react-icons/io5";
 import { Link, NavLink, Outlet } from "react-router";
+import { FaRegEdit, FaShoppingBag } from "react-icons/fa";
+import { MdJoinInner, MdOutlineAddCard, MdPayment } from "react-icons/md";
+
 
 const DashboardLayout = () => {
   return (
@@ -31,9 +34,10 @@ const DashboardLayout = () => {
               <path d="M14 10l2 2l-2 2"></path>
             </svg>
           </label>
-          <div className="px-4">Zap Shift Dashboard</div>
+          <div className="px-4"><span className="text-secondary">Decor</span><span className="text-primary">Nest</span> Dashboard</div>
         </nav>
         {/* Page content here */}
+        
         <Outlet></Outlet>
       </div>
 
@@ -51,7 +55,7 @@ const DashboardLayout = () => {
               <Link
                 to="/"
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Homepage"
+                data-tip="Home page"
               >
                 {/* Home icon */}
                 <svg
@@ -67,7 +71,7 @@ const DashboardLayout = () => {
                   <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
                   <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 </svg>
-                <span className="is-drawer-close:hidden">Homepage</span>
+                <span className="is-drawer-close:hidden">Home page</span>
               </Link>
             </li>
 
@@ -75,14 +79,103 @@ const DashboardLayout = () => {
             <li>
               <NavLink
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="MyParcels"
+                data-tip="My Profile"
                 to="/dashboard/my_profile"
               >
                 <IoPersonCircleSharp />
                 <span className="is-drawer-close:hidden">My Profile</span>
               </NavLink>
             </li>
+            {/* -------------user------------ */}
+            {/* my booking */}
+            <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="My Booking"
+                to="/dashboard/my_booking"
+              >
+                <FaShoppingBag />
 
+                <span className="is-drawer-close:hidden">My Booking</span>
+              </NavLink>
+            </li>
+            {/* PaymentHistory */}
+            <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Payment History"
+                to="/dashboard/payment_history"
+              >
+                <MdPayment />
+
+                <span className="is-drawer-close:hidden">Payment History</span>
+              </NavLink>
+            </li>
+            {/* ------------------admin-------------------- */}
+            {/* manage-decorators */}
+               <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Manage Decorators"
+                to="/dashboard/manage_decorators"
+              >
+                <IoPersonAdd />
+
+
+                <span className="is-drawer-close:hidden">Manage Decorators</span>
+              </NavLink>
+            </li>
+            {/* manage-services */}
+               <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Manage Services"
+                to="/dashboard/manage_services"
+              >
+                <FaRegEdit />
+
+
+                <span className="is-drawer-close:hidden">Manage Services</span>
+              </NavLink>
+            </li>
+            {/*manage-bookings */}
+               <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Manage Bookings"
+                to="/dashboard/manage_bookings"
+              >
+                <MdOutlineAddCard />
+
+
+                <span className="is-drawer-close:hidden">Manage Bookings</span>
+              </NavLink>
+            </li>
+            {/* assign-decorator */}
+               <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Assign Decorator"
+                to="/dashboard/assign_decorator"
+              >
+                <MdJoinInner />
+
+
+                <span className="is-drawer-close:hidden">Assign Decorator</span>
+              </NavLink>
+            </li>
+            {/* analytics */}
+               <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Analytics"
+                to="/dashboard/analytics"
+              >
+          <IoAnalyticsSharp />
+
+                <span className="is-drawer-close:hidden">Analytics</span>
+              </NavLink>
+            </li>
             {/* List item */}
             <li>
               <button
