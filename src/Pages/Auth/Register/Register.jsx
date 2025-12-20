@@ -6,7 +6,8 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import imageRegister from "../../../assets/register.json";
 import Lottie from "lottie-react";
 import axios from 'axios';
-// import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+
 
 const Register = () => {
   const {
@@ -17,7 +18,7 @@ const Register = () => {
   const { registerUser, updateUserProfile  } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  // const axiosSecure = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
 
   const handleRegistration = (data) => {
     const profileImg = data.photo[0];
@@ -31,17 +32,17 @@ const Register = () => {
             .then(res => {
                 const photoURL = res.data.data.url;
                 // create user in the database
-                // const userInfo = {
-                //     email: data.email,
-                //     displayName: data.name,
-                //     photoURL: photoURL
-                // }
-                // axiosSecure.post('/users', userInfo)
-                //     .then(res => {
-                //         if (res.data.insertedId) {
-                //             console.log('user created in the database');
-                //         }
-                //     })
+                const userInfo = {
+                    email: data.email,
+                    displayName: data.name,
+                    photoURL: photoURL
+                }
+                axiosSecure.post('/users', userInfo)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            console.log('user created in the database');
+                        }
+                    })
                 // update user profile to firebase
                 const userProfile = {
                     displayName: data.name,
@@ -65,7 +66,7 @@ const Register = () => {
    <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ backgroundColor: '#fffaec' }}>
   <div className="flex flex-col md:flex-row items-center max-w-7xl mx-auto py-12 px-4 gap-10">
 
-    {/* ফর্ম সেকশন – ডার্ক ব্যাকগ্রাউন্ড */}
+ 
     <div className="flex-1 rounded-3xl shadow-2xl p-8 md:p-10"
          style={{ backgroundColor: '#213943' }}>
       
