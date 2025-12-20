@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
 import { FiFilter, FiX } from "react-icons/fi";
+import axios from "axios";
 
 const Services = () => {
   const axiosSecure = useAxiosSecure();
@@ -15,19 +16,13 @@ const Services = () => {
 
 
   const { data: services = [] } = useQuery({
-  queryKey: ["services", search, selectedCategory, minBudget, maxBudget],
-  queryFn: async () => {
-    const res = await axiosSecure.get("/services", {
-      params: {
-        search,
-        type: selectedCategory,
-        min: minBudget || "",
-        max: maxBudget || "",
-      },
-    });
-    return res.data;
-  },
-});
+        queryKey: ['services', search, selectedCategory, minBudget, maxBudget],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`services?search=${search}&type=${selectedCategory}&min=${minBudget}&max=${maxBudget}`)
+            return res.data
+        }
+    })
+    console.log(services)
   // Categories (your 6 home decor categories)
   const categories = [
     "Home",
@@ -158,14 +153,14 @@ const Services = () => {
                     <input
                       type="number"
                       value={minBudget}
-                      onChange={(e) => setMinBudget(e.target.value)}
+                      onChange={(e) => setMinBudget(parseInt(e.target.value))}
                       placeholder="Min"
                       className="flex-1 p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
                     />
                     <input
                       type="number"
                       value={maxBudget}
-                      onChange={(e) => setMaxBudget(e.target.value)}
+                      onChange={(e) => setMaxBudget(parseInt(e.target.value))}
                       placeholder="Max"
                       className="flex-1 p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
                     />
