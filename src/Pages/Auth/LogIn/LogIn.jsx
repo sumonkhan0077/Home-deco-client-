@@ -120,10 +120,10 @@ const Login = () => {
               </Link>
             </p>
 
+          </form>
             <div className="mt-6">
               <SocialLogin />
             </div>
-          </form>
         </div>
 
         {/* Lottie Animation – লগইনের জন্য তোমার imagelogin */}

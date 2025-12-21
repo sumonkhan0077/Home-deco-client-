@@ -29,7 +29,7 @@
   default: true;
   --color-primary:  #c55626;
   --color-secondary: #213943;
-  --color-third: #213943;
+  --color-third: #fffaec;
 }
 
 body {

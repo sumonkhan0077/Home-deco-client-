@@ -164,10 +164,10 @@ const Register = () => {
           </Link>
         </p>
 
+      </form>
         <div className="mt-6">
           <SocialLogin />
         </div>
-      </form>
     </div>
 
     {/* Lottie Animation */}

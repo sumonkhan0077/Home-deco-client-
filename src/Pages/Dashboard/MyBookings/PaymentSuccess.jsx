@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { IoBagCheckSharp } from 'react-icons/io5';
+import { FaThumbsUp } from 'react-icons/fa';
 
 const PaymentSuccess = () => {
 
@@ -21,8 +22,9 @@ const PaymentSuccess = () => {
     }, [axiosSecure,sessionId])
     return (
           <div className='flex flex-col justify-center items-center min-h-screen '>
-          <IoBagCheckSharp size={50} color='green' />
-          <h2 className='text-2xl text-green-400 font-semibold mb-5'>Payment Success</h2>
+          <FaThumbsUp size={50} className='text-primary' />
+  
+          <h2 className='text-2xl text-primary font-semibold mb-5'>Payment Success</h2>
           <p className='text-[12px] sm:text-lg'> <span className='font-bold'>Transaction Id:</span> {paymentInfo.transactionId}</p>
           <p className='text-[12px] sm:text-lg' > <span className='font-bold'>Tracking Id:</span> {paymentInfo.trackingId} </p>
         </div>

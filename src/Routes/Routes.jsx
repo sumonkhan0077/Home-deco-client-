@@ -24,6 +24,7 @@ import AssignDecorator from "../Pages/Dashboard/AssignDecorator/AssignDecorator"
 import Analytics from "../Pages/Dashboard/Analytics/Analytics";
 import PaymentSuccess from "../Pages/Dashboard/MyBookings/PaymentSuccess";
 import PaymentCancelled from "../Pages/Dashboard/MyBookings/PaymentCancelled";
+import BeADecorator from "../Pages/BeADecorator/BeADecorator";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: `/services/:id`,
         element: <ServiceDetails />,
+      },
+      {
+        path: "be-a-decorator",
+        element: <BeADecorator />,
       },
       // {
       //   path: "dashboard",
