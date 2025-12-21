@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useLocation, useNavigate, useParams } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -7,12 +7,15 @@ import { FaArrowLeftLong, FaRegHeart, FaStar } from "react-icons/fa6";
 import { LuShapes } from "react-icons/lu";
 import { FiShoppingCart } from "react-icons/fi";
 import { IoHammerOutline, IoLeafOutline } from "react-icons/io5";
+import Swal from "sweetalert2";
 
 const ServiceDetails = () => {
   const { id } = useParams();
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const importModal = useRef(null);
+   const navigate = useNavigate()
+    const location = useLocation()
 
   const { data: services = {} } = useQuery({
     queryKey: ["services", id],
@@ -37,7 +40,31 @@ const ServiceDetails = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    console.log( e.target.package.value , typeof(e.target.package.value))
+    const bookingInfo = {
+      servicesId: services._id,
+      service_category: services.service_category,
+      service_name: services.service_name,
+      image:services.image,
+      unit:services.unit,
+      cost:e.target.package.value,
+      email: user?.email,
+      displayName: user?.displayName,
+      event_date:new Date(e.target.date.value), 
+      location: e.target.location.value,
+    };
+        axiosSecure.post('/booking', bookingInfo)
+            .then(res => {
+                if (res.data.insertedId) {
+                    importModal.current.close()
+                    Swal.fire({
+                        title: "Your Booking is confirm!",
+                        icon: "success",
+                        draggable: false
+                    });
+                    // navigate('/dashboard/my_booking')
+                }
+            })
+            .catch(err => console.log(err))
   };
   return (
     <div>
@@ -165,7 +192,6 @@ const ServiceDetails = () => {
                   </h1>
 
                   <div className="flex flex-col gap-1">
-                    {/* Main Price - Starting From (সবচেয়ে ছোট প্রাইসটা হাইলাইট) */}
                     <div className="flex items-baseline gap-2">
                       <span className="text-4xl font-normal text-primary">
                         ${services.costs?.[0]}
@@ -175,7 +201,6 @@ const ServiceDetails = () => {
                       </span>
                     </div>
 
-                    {/* Full Range + Optional Old Price for Discount Feel */}
                     <div className="flex items-center gap-3 text-sm">
                       <span className="text-gray-500">
                         Range: ${services.costs?.[0]} - ${services.costs?.[2]}{" "}
@@ -246,14 +271,9 @@ const ServiceDetails = () => {
                                     name="package"
                                     className="radio radio-primary"
                                     value={services.costs?.[0]}
-                                    onChange={() => {
-                                      // selected costs[0] 
-                                    }}
+                                  
                                   />
-                                  <span>
-                                    Basic: $ {services.costs?.[0]}{" "}
-                                    
-                                  </span>
+                                  <span>Basic: $ {services.costs?.[0]} </span>
                                 </label>
 
                                 <label className="label cursor-pointer justify-start gap-4">
@@ -268,7 +288,6 @@ const ServiceDetails = () => {
                                   />
                                   <span>
                                     Standard: $ {services.costs?.[1]}{" "}
-                                    
                                   </span>
                                 </label>
 
@@ -279,13 +298,10 @@ const ServiceDetails = () => {
                                     className="radio radio-primary"
                                     value={services.costs?.[2]}
                                     onChange={() => {
-                                      // selected costs[2] 
+                                      // selected costs[2]
                                     }}
                                   />
-                                  <span>
-                                    Premium: $ {services.costs?.[2]}{" "}
-                                    
-                                  </span>
+                                  <span>Premium: $ {services.costs?.[2]} </span>
                                 </label>
                               </div>
                             </fieldset>

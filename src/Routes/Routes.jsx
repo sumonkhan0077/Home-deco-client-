@@ -22,6 +22,8 @@ import ManageServices from "../Pages/Dashboard/ManageServices/ManageServices";
 import ManageBookings from "../Pages/Dashboard/ManageBookings/ManageBookings";
 import AssignDecorator from "../Pages/Dashboard/AssignDecorator/AssignDecorator";
 import Analytics from "../Pages/Dashboard/Analytics/Analytics";
+import PaymentSuccess from "../Pages/Dashboard/MyBookings/PaymentSuccess";
+import PaymentCancelled from "../Pages/Dashboard/MyBookings/PaymentCancelled";
 
 const router = createBrowserRouter([
   {
@@ -112,6 +114,14 @@ const router = createBrowserRouter([
       {
         path: "analytics",
         element: <Analytics />,
+      },
+      {
+        path: "payment-success",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "payment-cancelled",
+        element: <PaymentCancelled />,
       },
     ],
   },
