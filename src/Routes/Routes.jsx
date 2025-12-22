@@ -25,6 +25,8 @@ import Analytics from "../Pages/Dashboard/Analytics/Analytics";
 import PaymentSuccess from "../Pages/Dashboard/MyBookings/PaymentSuccess";
 import PaymentCancelled from "../Pages/Dashboard/MyBookings/PaymentCancelled";
 import BeADecorator from "../Pages/BeADecorator/BeADecorator";
+import UsersManagement from "../Pages/Dashboard/UsersManagement/UsersManagement";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -106,7 +108,10 @@ const router = createBrowserRouter([
       },
       {
         path: "manage_services",
-        element: <ManageServices />,
+        element: <AdminRoute>
+          <ManageServices />
+          </AdminRoute>
+         ,
       },
       {
         path: "manage_bookings",
@@ -119,6 +124,10 @@ const router = createBrowserRouter([
       {
         path: "analytics",
         element: <Analytics />,
+      },
+      {
+        path: "users-management",
+        element: <UsersManagement />,
       },
       {
         path: "payment-success",

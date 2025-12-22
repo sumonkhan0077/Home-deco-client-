@@ -1,12 +1,17 @@
 import React from "react";
 import { CiDeliveryTruck } from "react-icons/ci";
-import { IoAnalyticsSharp, IoPersonAdd, IoPersonCircleSharp } from "react-icons/io5";
+import {
+  IoAnalyticsSharp,
+  IoPersonAdd,
+  IoPersonCircleSharp,
+} from "react-icons/io5";
 import { Link, NavLink, Outlet } from "react-router";
-import { FaRegEdit, FaShoppingBag } from "react-icons/fa";
+import { FaRegEdit, FaRegHandshake, FaShoppingBag } from "react-icons/fa";
 import { MdJoinInner, MdOutlineAddCard, MdPayment } from "react-icons/md";
-
+import useRole from "../../Hooks/useRole/useRole";
 
 const DashboardLayout = () => {
+  const {role} =  useRole()
   return (
     <div className="drawer lg:drawer-open max-w-7xl mx-auto ">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -34,10 +39,13 @@ const DashboardLayout = () => {
               <path d="M14 10l2 2l-2 2"></path>
             </svg>
           </label>
-          <div className="px-4"><span className="text-secondary">Decor</span><span className="text-primary">Nest</span> Dashboard</div>
+          <div className="px-4">
+            <span className="text-secondary">Decor</span>
+            <span className="text-primary">Nest</span> Dashboard
+          </div>
         </nav>
         {/* Page content here */}
-        
+
         <Outlet></Outlet>
       </div>
 
@@ -111,9 +119,12 @@ const DashboardLayout = () => {
                 <span className="is-drawer-close:hidden">Payment History</span>
               </NavLink>
             </li>
-            {/* ------------------admin-------------------- */}
+
+            {
+                role === "admin" && <>
+                    {/* ------------------admin-------------------- */}
             {/* manage-decorators */}
-               <li>
+            <li>
               <NavLink
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="Manage Decorators"
@@ -121,12 +132,13 @@ const DashboardLayout = () => {
               >
                 <IoPersonAdd />
 
-
-                <span className="is-drawer-close:hidden">Manage Decorators</span>
+                <span className="is-drawer-close:hidden">
+                  Manage Decorators
+                </span>
               </NavLink>
             </li>
             {/* manage-services */}
-               <li>
+            <li>
               <NavLink
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="Manage Services"
@@ -134,12 +146,11 @@ const DashboardLayout = () => {
               >
                 <FaRegEdit />
 
-
                 <span className="is-drawer-close:hidden">Manage Services</span>
               </NavLink>
             </li>
             {/*manage-bookings */}
-               <li>
+            <li>
               <NavLink
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="Manage Bookings"
@@ -147,12 +158,11 @@ const DashboardLayout = () => {
               >
                 <MdOutlineAddCard />
 
-
                 <span className="is-drawer-close:hidden">Manage Bookings</span>
               </NavLink>
             </li>
             {/* assign-decorator */}
-               <li>
+            <li>
               <NavLink
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="Assign Decorator"
@@ -160,22 +170,39 @@ const DashboardLayout = () => {
               >
                 <MdJoinInner />
 
-
                 <span className="is-drawer-close:hidden">Assign Decorator</span>
               </NavLink>
             </li>
             {/* analytics */}
-               <li>
+            <li>
               <NavLink
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="Analytics"
                 to="/dashboard/analytics"
               >
-          <IoAnalyticsSharp />
+                <IoAnalyticsSharp />
 
                 <span className="is-drawer-close:hidden">Analytics</span>
               </NavLink>
             </li>
+            {/* users-management */}
+            <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Users Management"
+                to="/dashboard/users-management"
+              >
+                <FaRegHandshake />
+
+
+                <span className="is-drawer-close:hidden">Users Management</span>
+              </NavLink>
+            </li>
+
+                </>
+            }
+           
+
             {/* List item */}
             <li>
               <button
