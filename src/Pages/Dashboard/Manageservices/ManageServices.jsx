@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router';
 import CreateServices from './CreateServices';
+import UpdateServices from './UpdateServices';
 
 const ManageServices = () => {
   const { user } = useAuth();
@@ -131,9 +132,10 @@ const [search, setSearch] = useState("");
                   <button onClick={()=> handleDelete(service._id)} className='btn bg-primary hover:bg-red-600 rounded-full hover:text-white '>
                     Delete
                   </button>
-                  <button className='btn bg-primary hover:bg-green-600 rounded-full hover:text-white '>
-                    Edit
-                  </button>
+                  <div>
+                     <UpdateServices service={service} refetch={refetch}></UpdateServices>
+                  </div>
+                 
                 </td>
               </tr>
             ))}
