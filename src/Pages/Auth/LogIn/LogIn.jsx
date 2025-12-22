@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import imagelogin from "../../../assets/login.json";
 import Lottie from "lottie-react";
+import { toast } from "react-toastify";
 
 const Login = () => {
+     const [fbError, setFbError] = useState(""); 
   const {
     register,
     handleSubmit,
@@ -22,9 +24,12 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         navigate(location?.state || "/");
+        toast.success(" User login successfully");
       })
       .catch((error) => {
         console.log(error);
+        setFbError(error.code)
+        toast.error("Something went wrong");
       });
   };
 
@@ -98,6 +103,9 @@ const Login = () => {
                 Forgot password?
               </a>
             </div>
+            {
+              fbError && <p className="text-red-500">{fbError}</p>
+            }
 
             {/* Login Button */}
             <button

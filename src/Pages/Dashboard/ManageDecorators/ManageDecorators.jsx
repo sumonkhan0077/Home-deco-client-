@@ -58,7 +58,7 @@ const ManageDecorators = () => {
     return (
        <div>
             <div>
-                <h2 className='text-3xl px-6 pt-4'> Decorators Apply <span className='font-bold'>({decorators.length})</span> </h2>
+                <h2 className='text-3xl px-6 pt-4 pb-4 text-primary'> Decorators Apply <span className='font-bold'>({decorators.length})</span> </h2>
                 <div>
                     <div className="overflow-x-auto p-4">
                         <table className="table bg-primary">

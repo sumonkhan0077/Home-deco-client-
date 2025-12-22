@@ -2,14 +2,20 @@ import React from "react";
 import { Link, NavLink } from "react-router";
 import Logo from "../Logo/Logo";
 import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  console.log(user)
+  console.log(user);
 
   const handleLogOut = () => {
     logOut()
-      .then()
+      .then((result) => {
+        console.log(result.user);
+
+        toast.success(" User logout successfully");
+      })
+
       .catch((error) => {
         console.log(error);
       });
@@ -46,15 +52,14 @@ const Navbar = () => {
         {" "}
         <NavLink to="/login">Login</NavLink>
       </li>
-      {
-        user && <> 
-         <li>
-        {" "}
-        <NavLink to="/dashboard">Dashboard</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            {" "}
+            <NavLink to="/dashboard">Dashboard</NavLink>
+          </li>
         </>
-      }
-      
+      )}
     </>
   );
   return (
@@ -93,11 +98,17 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <a onClick={handleLogOut} className=" text-sm px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300">
+            <a
+              onClick={handleLogOut}
+              className=" cursor-pointer text-sm px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+            >
               Log Out
             </a>
           ) : (
-            <Link className="text-sm px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300" to="/login">
+            <Link
+              className="text-sm cursor-pointer px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300"
+              to="/login"
+            >
               LogIn
             </Link>
           )}

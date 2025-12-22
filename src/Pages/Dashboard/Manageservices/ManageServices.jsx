@@ -64,6 +64,7 @@ const [search, setSearch] = useState("");
         </div>
       </div>
       {/* search */}
+      <div className='ml-4'>
       <div
         data-aos="flip-up"
         className="flex items-center w-96 bg-gray-50 border border-gray-200 rounded-lg p-1 mb-4"
@@ -91,6 +92,8 @@ const [search, setSearch] = useState("");
             />
           </svg>
         </button>
+      </div>
+
       </div>
 
       <div className="overflow-x-auto p-4">

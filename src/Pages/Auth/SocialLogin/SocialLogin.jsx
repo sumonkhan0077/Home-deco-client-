@@ -3,6 +3,7 @@ import React from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { toast } from 'react-toastify';
 
 
 const SocialLogin = () => {
@@ -17,7 +18,8 @@ const SocialLogin = () => {
             .then(result => {
                 console.log(result.user);
                 navigate(location.state || '/');  
-
+                toast.success(" User logIn successfully");
+                 
                 // create user in the database
                 const userInfo = {
                     email: result.user.email,
@@ -34,6 +36,7 @@ const SocialLogin = () => {
             })
             .catch(error => {
                 console.log(error)
+                toast.error("Something went wrong");
             })
     }
 
