@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router';
+import CreateServices from './CreateServices';
 
 const ManageServices = () => {
   const { user } = useAuth();
@@ -21,6 +22,10 @@ const [search, setSearch] = useState("");
     },
   });
   console.log(services)
+
+  const handleProductAdded = () => {
+    refetch();
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -59,9 +64,8 @@ const [search, setSearch] = useState("");
             <option value="asc">Old → New</option>
           </select>
         </div> */}
-        <div className='btn bg-primary text-white text-xl font-normal'>
-            Create Service <span className='text-2xl font-bold'>+</span>
-        </div>
+        <CreateServices  handleProductAdded={handleProductAdded } >
+          </CreateServices>
       </div>
       {/* search */}
       <div className='ml-4'>
