@@ -3,6 +3,7 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link } from "react-router";
 import useAuth from "../../../../Hooks/useAuth";
 import Loading from "../../../../Components/Loading/Loading";
+import AnimatedSection from "../../../../Utility/AnimatedSection";
 
 const cards = [
   {
@@ -66,13 +67,18 @@ const CategoryHome = () => {
         {/* Hero Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6 border-b border-primary/50 dark:border-white/10 pb-6">
           <div className="max-w-2xl">
+            <AnimatedSection variant="fadeLeft">
             <span className="text-secondary font-medium tracking-widest text-sm uppercase block">
               Stylish & Affordable
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-primary dark:text-gray-100 leading-tight">
               Holistic Interior Services
             </h1>
+                  
+                </AnimatedSection>
           </div>
+          <AnimatedSection variant="fadeRight">
+                  
           <Link
           to='/services'
             className="group flex items-center gap-2 px-6 py-3 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 dark:border-gray-400 dark:text-gray-300 dark:hover:bg-gray-100 dark:hover:text-gray-900 whitespace-nowrap"
@@ -83,11 +89,15 @@ const CategoryHome = () => {
               <MdOutlineArrowOutward />
             </span>
           </Link>
+                </AnimatedSection>
         </div>
 
         {/* Cards Grid */}
+        <AnimatedSection variant="fadeUp">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
           {cards.map((card, index) => (
+            <>
+            
             <div
               key={index}
               className={`group relative h-[320px] overflow-hidden rounded-2xl cursor-pointer shadow-soft hover:shadow-hover transition-all duration-500
@@ -103,6 +113,7 @@ const CategoryHome = () => {
               <div className="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
+                    
                     <span className="text-white/80 text-sm font-light tracking-wider uppercase">
                       {card.category}
                     </span>
@@ -116,8 +127,11 @@ const CategoryHome = () => {
                 </div>
               </div>
             </div>
+            </>
           ))}
         </div>
+                  
+                </AnimatedSection>
       </main>
     </div>
   );

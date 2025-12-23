@@ -4,67 +4,65 @@ import { GrProjects } from "react-icons/gr";
 import { IoHammerOutline } from "react-icons/io5";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import "./index.css";
+import AnimatedSection from "../../../../Utility/AnimatedSection";
 
 const NewsLetters = () => {
   return (
     <div>
       <div className="bg-background-light dark:bg-background-dark antialiased flex flex-col">
-        <main
-          className="flex-grow  flex flex-col lg:flex-row relative bg-gradient-to-br from-[#1b2f38] via-[#213943] to-[#2c4f5d]"
-        >
+        <main className="flex-grow  flex flex-col lg:flex-row relative bg-gradient-to-br from-[#1b2f38] via-[#213943] to-[#2c4f5d]">
           {/* ================= LEFT HERO ================= */}
-          <div
-            className="relative w-full lg:w-3/5 xl:w-2/3 min-h-[600px] px-6 flex items-center justify-center overflow-hidden"
-          >
+          <div className="relative w-full lg:w-3/5 xl:w-2/3 min-h-[600px] px-6 flex items-center justify-center overflow-hidden">
             {/* Soft Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/25 to-black/10" />
 
             {/* CONTENT */}
             <div className="relative z-10 max-w-2xl w-full">
-              <span className="inline-block main-btn2 tracking-widest uppercase mb-6">
-                Premium Home Decor
-              </span>
+              <AnimatedSection variant="fadeUp">
+                <span className="inline-block main-btn2 tracking-widest uppercase mb-6">
+                  Premium Home Decor
+                </span>
+              </AnimatedSection>
 
-              <h1
-                className=" text-3xl md:text-5xl lg:text-6xl font-medium text-white mb-8 leading-tight drop-shadow-sm"
-              >
-                Designing Homes <br />
-                With <i className=" italic text-orange-400">Elegance</i> <br />&
-                Comfort
-              </h1>
+              <AnimatedSection variant="fadeUp">
+                <h1 className=" text-3xl md:text-5xl lg:text-6xl font-medium text-white mb-8 leading-tight drop-shadow-sm">
+                  Designing Homes <br />
+                  With <i className=" italic text-orange-400">Elegance</i>{" "}
+                  <br />& Comfort
+                </h1>
+                <p className="text-lg text-gray-200 mb-10 font-light max-w-lg leading-relaxed">
+                  Transform your living space with modern, stylish, and timeless
+                  home decoration solutions crafted to reflect your lifestyle.
+                </p>
+              </AnimatedSection>
 
-              <p
-                className="text-lg text-gray-200 mb-10 font-light max-w-lg leading-relaxed"
-              >
-                Transform your living space with modern, stylish, and timeless
-                home decoration solutions crafted to reflect your lifestyle.
-              </p>
+              <AnimatedSection variant="fadeUp">
+                {/* FORM */}
+                <form className="w-full max-w-md md:max-w-lg mb-6">
+                  <div className="relative flex flex-col md:flex-row items-center bg-white rounded-full p-1.5 shadow-xl transition-transform duration-300 focus-within:scale-[1.02]">
+                    <input
+                      type="email"
+                      placeholder="Enter your email for free consultation"
+                      required
+                      className="flex-grow bg-transparent border-none text-gray-800 placeholder-gray-500 focus:ring-0 text-base py-3 px-5 outline-none"
+                    />
 
-              {/* FORM */}
-              <form className="w-full max-w-md md:max-w-lg mb-6">
-                <div
-                  className="relative flex flex-col md:flex-row items-center bg-white rounded-full p-1.5 shadow-xl transition-transform duration-300 focus-within:scale-[1.02]"
-                >
-                  <input
-                    type="email"
-                    placeholder="Enter your email for free consultation"
-                    required
-                    className="flex-grow bg-transparent border-none text-gray-800 placeholder-gray-500 focus:ring-0 text-base py-3 px-5 outline-none"
-                  />
-
-                  <button
-                    type="submit"
-                    className="main-btn2 cursor-pointer flex gap-1"
-                  >
-                    Get Started{" "}
-                    <span className="text-xl">
-                      <MdOutlineArrowOutward />
-                    </span>
-                  </button>
-                </div>
-              </form>
+                    <button
+                      type="submit"
+                      className="main-btn2 cursor-pointer flex gap-1"
+                    >
+                      Get Started{" "}
+                      <span className="text-xl">
+                        <MdOutlineArrowOutward />
+                      </span>
+                    </button>
+                  </div>
+                </form>
+              </AnimatedSection>
 
               {/* CHECKBOX */}
+              <AnimatedSection variant="fadeUp">
+                  
               <div className="flex items-start gap-3">
                 <input
                   type="checkbox"
@@ -87,13 +85,14 @@ const NewsLetters = () => {
                   </a>
                 </label>
               </div>
+                </AnimatedSection>
             </div>
           </div>
 
           {/* ================= RIGHT STATS PANEL ================= */}
           <div
             className="w-full lg:w-2/5 xl:w-1/3 
-    bg-gradient-to-br from-white via-gray-50 to-gray-100
+         bg-gradient-to-br from-white via-gray-50 to-gray-100
     dark:from-[#1f2933] dark:via-[#1b2530] dark:to-[#111827]
     flex flex-col justify-center p-8 lg:p-16 
     relative z-10 shadow-2xl lg:shadow-none"
@@ -101,12 +100,15 @@ const NewsLetters = () => {
             <div className="max-w-md mx-auto w-full space-y-12">
               {/* HEADER */}
               <div className="text-center lg:text-left">
+                <AnimatedSection variant="fadeUp">
+                  
                 <h3
                   className="text-sm font-bold uppercase tracking-widest 
           text-gray-500 dark:text-gray-400 mb-2"
                 >
                   Why Choose Us
                 </h3>
+                </AnimatedSection>
                 <div className="h-1 w-12 bg-orange-500 rounded-full mx-auto lg:mx-0" />
               </div>
 
@@ -131,6 +133,9 @@ const NewsLetters = () => {
                   icon: <IoHammerOutline />,
                 },
               ].map((item, i) => (
+                <>
+                <AnimatedSection variant="fadeUp">
+                  
                 <div key={i} className="flex  items-center gap-6 group">
                   <div
                     className="w-16 h-16 rounded-2xl bg-white 
@@ -158,6 +163,8 @@ const NewsLetters = () => {
                     </p>
                   </div>
                 </div>
+                </AnimatedSection>
+                </>
               ))}
 
               {/* QUOTE */}

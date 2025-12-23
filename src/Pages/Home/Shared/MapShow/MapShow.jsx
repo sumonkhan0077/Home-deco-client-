@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import { CiSearch } from "react-icons/ci";
+import AnimatedSection from "../../../../Utility/AnimatedSection";
 
 const position = [23.685, 90.3563];
 
@@ -67,6 +68,8 @@ const MapShow = () => {
     <div className="text-4xl max-w-7xl mx-auto px-6 py-16 lg:px-8 lg:py-24">
       <div className=" mb-16 max-w-7xl mx-auto flex flex-col md:flex-row justify-between  md:items-center  gap-6 border-b border-primary/50 dark:border-white/10 pb-6">
         <div>
+          <AnimatedSection variant="fadeUp">
+                  
           <span className="text-secondary font-medium tracking-widest text-sm uppercase  flex items-center gap-2">
             <div className="inline-grid *:[grid-area:1/1]">
               <div className="status status-warning animate-ping"></div>
@@ -77,11 +80,14 @@ const MapShow = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary dark:text-gray-100 leading-tight ">
             We are available in 64 districts!
           </h1>
+                </AnimatedSection>
         </div>
 
         {/* <hr /> */}
       </div>
       <div className="mb-6 -mt-10">
+        <AnimatedSection variant="fadeUp">
+                  
         {/* search  */}
         <form onSubmit={handleSearch}>
           <label className="input">
@@ -112,7 +118,10 @@ const MapShow = () => {
             <CiSearch />
           </button>
         </form>
+                </AnimatedSection>
       </div>
+      <AnimatedSection variant="fadeUp">
+                  
       <div className="border w-full h-[700px] border-16 border-secondary rounded-2xl">
         <MapContainer
           center={position}
@@ -150,6 +159,7 @@ const MapShow = () => {
           ))}
         </MapContainer>
       </div>
+                </AnimatedSection>
     </div>
   );
 };

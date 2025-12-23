@@ -6,6 +6,8 @@ import { FiFilter, FiX } from "react-icons/fi";
 import axios from "axios";
 import Loading from "../../Components/Loading/Loading";
 import useAuth from "../../Hooks/useAuth";
+import SmoothScroll from "../../Utility/SmoothScroll";
+import AnimatedSection from "../../Utility/AnimatedSection";
 
 const Services = () => {
   const axiosSecure = useAxiosSecure();
@@ -26,6 +28,7 @@ const Services = () => {
     },
   });
   console.log(services);
+  SmoothScroll()
   // Categories (your 6 home decor categories)
 
   // if (loading) {
@@ -56,14 +59,19 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-6 mb-20 lg:px-8 mt-14">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 border-b border-primary/50 dark:border-white/10 pb-8">
           <div className="max-w-2xl">
+            <AnimatedSection variant="fadeLeft">
+                  
             <span className="text-secondary font-medium tracking-widest text-sm uppercase block">
               Explore
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary dark:text-gray-100 leading-tight">
               Our Services
             </h1>
+                </AnimatedSection>
           </div>
           <div>
+            <AnimatedSection variant="fadeRight">
+                  
             {/* search */}
             <div
               data-aos="flip-up"
@@ -93,6 +101,7 @@ const Services = () => {
                 </svg>
               </button>
             </div>
+                </AnimatedSection>
           </div>
         </div>
         <div>
@@ -199,6 +208,9 @@ const Services = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
             {services.map((top) => (
+              <>
+              <AnimatedSection variant="fadeUp">
+                  
               <div key={top._id} className="flex gap-4">
                 <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
                   {/* Card Image */}
@@ -255,6 +267,8 @@ const Services = () => {
                   </div>
                 </div>
               </div>
+                </AnimatedSection>
+              </>
             ))}
           </div>
         )}

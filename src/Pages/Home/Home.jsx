@@ -16,15 +16,21 @@ import MapShow from "./Shared/MapShow/MapShow.jsx";
 import Header from "./Shared/Header/Header.jsx";
 import useAuth from "../../Hooks/useAuth.jsx";
 import Loading from "../../Components/Loading/Loading.jsx";
+import SmoothScroll from "../../Utility/SmoothScroll.jsx";
+import AnimatedSection from "../../Utility/AnimatedSection.jsx";
 
 const Home = () => {
   const {loading} = useAuth();
   if(loading){
     return <Loading></Loading>
   }
+  SmoothScroll()
   return (
     <div className="">
+      <AnimatedSection variant="fadeUp"> 
+
       <Header />
+      </AnimatedSection>
 
       <CategoryHome />
       <TopCard />

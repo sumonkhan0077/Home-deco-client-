@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { CiStar } from "react-icons/ci";
+import AnimatedSection from "../../../../Utility/AnimatedSection";
 
 const teamMembers = [
   {
@@ -74,18 +75,22 @@ const TopEventer = () => {
     <div className="bg-[#213943] py-16 lg:py-20  px-6 lg:px-8">
       <div className=" mb-16 max-w-7xl mx-auto flex flex-col md:flex-row justify-between  md:items-center  gap-6 border-b border-primary/50 dark:border-white/10 pb-6">
         <div>
-          <span className="text-primary font-medium tracking-widest text-sm uppercase block">
-            Meet Us
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary dark:text-gray-100 leading-tight ">
-            Our Top Decorators
-          </h1>
+          <AnimatedSection variant="fadeLeft">
+            <span className="text-primary font-medium tracking-widest text-sm uppercase block">
+              Meet Us
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary dark:text-gray-100 leading-tight ">
+              Our Top Decorators
+            </h1>
+          </AnimatedSection>
         </div>
         <div>
-          <h1 className="text-lg text-[#a0a0a0]">
-            Our team of experienced designers brings creativity <br /> and style
-            to every project, making your space truly unique.
-          </h1>
+          <AnimatedSection variant="fadeRight">
+            <h1 className="text-lg text-[#a0a0a0]">
+              Our team of experienced designers brings creativity <br /> and
+              style to every project, making your space truly unique.
+            </h1>
+          </AnimatedSection>
         </div>
         {/* <hr /> */}
       </div>
@@ -104,63 +109,70 @@ const TopEventer = () => {
         >
           {teamMembers.map((teamMember, i) => (
             <SwiperSlide key={i}>
-              <div className="group cursor-pointer">
-                {/* Image Container with Overlay on Hover */}
-                <div className="relative overflow-hidden rounded-xl">
-                  <img
-                    src={teamMember.img}
-                    alt={teamMember.name}
-                    className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
-                  />
+              <AnimatedSection variant="fadeUp">
+                <div className="group cursor-pointer">
+                  {/* Image Container with Overlay on Hover */}
+                  <div className="relative overflow-hidden rounded-xl">
+                    <img
+                      src={teamMember.img}
+                      alt={teamMember.name}
+                      className="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                    />
 
-                  <div
-                    className="text-lg font-normal absolute top-3 left-2 px-2 py-1 rounded-full bg-white/5 backdrop-blur-xl  shadow-2xl backdrop-saturate-150"
-                  >
-                    <span className="">Rating:</span> <span className="text-yellow-600">{teamMember.rating}</span>
+                    <div className="text-lg font-normal absolute top-3 left-2 px-2 py-1 rounded-full bg-white/5 backdrop-blur-xl  shadow-2xl backdrop-saturate-150">
+                      <span className="">Rating:</span>{" "}
+                      <span className="text-yellow-600">
+                        {teamMember.rating}
+                      </span>
+                    </div>
+
+                    {/* Hover Overlay: Name & Role on Image */}
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pb-6 px-6 text-center transition-transform duration-500 ease-in-out group-hover:translate-y-[-1%]">
+                      <h1 className="text-2xl font-medium text-white translate-y-8 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                        {teamMember.name}
+                      </h1>
+                      <h3 className="text-lg font-normal text-gray-300 mt-1 translate-y-8 opacity-0 transition-all duration-700 group-hover:translate-y-0 group-hover:opacity-100">
+                        {teamMember.role}
+                      </h3>
+                    </div>
+
+                    {/* Dark overlay on hover */}
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pb-6 px-6 text-center transition-transform duration-500 ease-in-out group-hover:translate-y-[20%]" />
                   </div>
 
-                  {/* Hover Overlay: Name & Role on Image */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pb-6 px-6 text-center transition-transform duration-500 ease-in-out group-hover:translate-y-[-1%]">
-                    <h1 className="text-2xl font-medium text-white translate-y-8 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                  {/* Name & Role BELOW the Image (Outside) - Normal State */}
+                  {/* Name & Role BELOW the Image (Outside) - Normal State */}
+                  <div className="mt-6 text-center transition-all duration-400 ease-out group-hover:-translate-y-8 group-hover:opacity-0">
+                    <h1 className="text-2xl font-medium text-white">
                       {teamMember.name}
                     </h1>
-                    <h3 className="text-lg font-normal text-gray-300 mt-1 translate-y-8 opacity-0 transition-all duration-700 group-hover:translate-y-0 group-hover:opacity-100">
+                    <p className="text-lg font-normal text-gray-400 mt-1">
                       {teamMember.role}
-                    </h3>
+                    </p>
                   </div>
-
-                  {/* Dark overlay on hover */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pb-6 px-6 text-center transition-transform duration-500 ease-in-out group-hover:translate-y-[20%]" />
                 </div>
-
-                {/* Name & Role BELOW the Image (Outside) - Normal State */}
-                {/* Name & Role BELOW the Image (Outside) - Normal State */}
-                <div className="mt-6 text-center transition-all duration-400 ease-out group-hover:-translate-y-8 group-hover:opacity-0">
-                  <h1 className="text-2xl font-medium text-white">
-                    {teamMember.name}
-                  </h1>
-                  <p className="text-lg font-normal text-gray-400 mt-1">
-                    {teamMember.role}
-                  </p>
-                </div>
-              </div>
+              </AnimatedSection>
             </SwiperSlide>
           ))}
         </Swiper>
 
         <div className="flex justify-center gap-8 mt-12">
-          <button
-            ref={prevRef}
-            className="bg-white text-primary px-1 py-1 rounded-full hover:bg-primary hover:text-white"
-          >
-            <GrFormPrevious />
-          </button>
-          <button
-            ref={nextRef}
-            className="bg-white text-primary px-1 py-1 rounded-full hover:bg-primary hover:text-white"
-          >
-            <GrFormNext />
-          </button>
+          <AnimatedSection variant="fadeLeft">
+            <button
+              ref={prevRef}
+              className="bg-white text-primary px-1 py-1 rounded-full hover:bg-primary hover:text-white"
+            >
+              <GrFormPrevious />
+            </button>
+          </AnimatedSection>
+          <AnimatedSection variant="fadeRight">
+            <button
+              ref={nextRef}
+              className="bg-white text-primary px-1 py-1 rounded-full hover:bg-primary hover:text-white"
+            >
+              <GrFormNext />
+            </button>
+          </AnimatedSection>
         </div>
       </div>
     </div>

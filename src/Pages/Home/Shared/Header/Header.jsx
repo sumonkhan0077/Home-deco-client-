@@ -6,6 +6,7 @@ import image4 from "../../../../assets/image4.jpg";
 import imagepng from "../../../../assets/pngimage.png";
 import { Link } from "react-router";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import AnimatedSection from "../../../../Utility/AnimatedSection";
 
 const Header = () => {
   return (
@@ -24,14 +25,22 @@ const Header = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
               <div className="text-center max-w-3xl mx-auto mb-6 md:-mb-16 z-50">
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6 text-white/85">
+                
+                <AnimatedSection variant="fadeUp">
+                  <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-6 text-white/85">
                   Beautiful Spaces.. Thoughtfully
                   <span className="text-primary italic"> Designed</span>
                 </h1>
+                </AnimatedSection>
+                <AnimatedSection variant="fadeUp">
                 <p className="text-lg font-normal md:text-xl text-white/50 mb-10">
                   Our DocorNest brings together expert designers, creative
                   craftsmanship, and soulful living.
                 </p>
+                  
+                </AnimatedSection>
+                <AnimatedSection variant="fadeUp">
+                  
                 <Link
                   to="/about" // Fixed: Add path
                   className="inline-flex items-center text-xl gap-2 main-btn2"
@@ -41,6 +50,7 @@ const Header = () => {
                     <MdOutlineArrowOutward />
                   </span>
                 </Link>
+                </AnimatedSection>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end relative -z-10">
