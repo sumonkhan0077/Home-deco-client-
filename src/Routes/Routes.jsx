@@ -27,6 +27,7 @@ import PaymentCancelled from "../Pages/Dashboard/MyBookings/PaymentCancelled";
 import BeADecorator from "../Pages/BeADecorator/BeADecorator";
 import UsersManagement from "../Pages/Dashboard/UsersManagement/UsersManagement";
 import AdminRoute from "./AdminRoute";
+import AssignedTasks from "../Pages/Dashboard/AssignedTasks/AssignedTasks";
 
 const router = createBrowserRouter([
   {
@@ -136,6 +137,10 @@ const router = createBrowserRouter([
       {
         path: "payment-cancelled",
         element: <PaymentCancelled />,
+      },
+      {
+        path: "assigned-tasks",
+        element: <AssignedTasks />,
       },
     ],
   },

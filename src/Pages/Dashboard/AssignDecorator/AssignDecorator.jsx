@@ -87,7 +87,7 @@ const AssignDecorator = () => {
                         onClick={() => handleFindDecorator(booking)}
                         className=" main-btn2 "
                       >
-                        Find Decorator
+                        Assign Decorator
                       </button>
                     </td>
                   </tr>
@@ -127,7 +127,7 @@ const AssignDecorator = () => {
                         <td>
                           <button
                             onClick={() => handleAssignDecorator(decorator)}
-                            className="btn btn-primary text-black"
+                            className="main-btn2"
                           >
                             Assign
                           </button>
@@ -140,7 +140,6 @@ const AssignDecorator = () => {
             </div>
             <div className="modal-action">
               <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
                 <button className="btn">Close</button>
               </form>
             </div>

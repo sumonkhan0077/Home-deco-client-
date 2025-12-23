@@ -201,7 +201,22 @@ const DashboardLayout = () => {
 
                 </>
             }
-           
+              
+
+              {/* decoratiors routes */}
+              {/* users-management */}
+            <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Assigned Tasks"
+                to="/dashboard/assigned-tasks"
+              >
+                <FaRegHandshake />
+
+
+                <span className="is-drawer-close:hidden">Assigned Tasks</span>
+              </NavLink>
+            </li>
 
             {/* List item */}
             <li>
