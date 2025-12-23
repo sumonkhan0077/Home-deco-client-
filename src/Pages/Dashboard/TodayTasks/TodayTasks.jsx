@@ -3,6 +3,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const TodayTasks = () => {
   const { user } = useAuth();
@@ -122,9 +123,7 @@ const TodayTasks = () => {
                     className="w-24 h-24 object-cover rounded-lg"
                   />
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-primary">
-                      {booking.service_name}
-                    </h3>
+                    <Link className="hover:text-primary text-2xl" to={`/services/${booking.servicesId}`}>{booking.service_name}</Link>
                     <p className="text-gray-700 mt-1">
                       <strong>Client:</strong> {booking.displayName} (
                       {booking.email})

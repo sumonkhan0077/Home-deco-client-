@@ -11,6 +11,7 @@ import {
   MdCalendarToday,
   MdJoinInner,
   MdOutlineAddCard,
+  MdOutlineWorkHistory,
   MdPayment,
   MdWorkOutline,
 } from "react-icons/md";
@@ -126,6 +127,19 @@ const DashboardLayout = () => {
                 <span className="is-drawer-close:hidden">Payment History</span>
               </NavLink>
             </li>
+            {/* PaymentHistory */}
+            <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Services History"
+                to="/dashboard/services-history"
+              >
+               <MdOutlineWorkHistory />
+
+
+                <span className="is-drawer-close:hidden">Services History</span>
+              </NavLink>
+            </li>
 
             {role === "admin" && (
               <>
@@ -187,7 +201,7 @@ const DashboardLayout = () => {
                   </NavLink>
                 </li>
                 {/* analytics */}
-                <li>
+                {/* <li>
                   <NavLink
                     className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                     data-tip="Analytics"
@@ -197,7 +211,7 @@ const DashboardLayout = () => {
 
                     <span className="is-drawer-close:hidden">Analytics</span>
                   </NavLink>
-                </li>
+                </li> */}
                 {/* RevenueMonitoring */}
                 <li>
                   <NavLink
@@ -231,6 +245,7 @@ const DashboardLayout = () => {
             )}
 
             {/* decorators routes */}
+
             {/* Assigned Tasks */}
             <li>
               <NavLink

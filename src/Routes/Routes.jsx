@@ -31,6 +31,7 @@ import AssignedTasks from "../Pages/Dashboard/AssignedTasks/AssignedTasks";
 import TodayTasks from "../Pages/Dashboard/TodayTasks/TodayTasks";
 import EarningsSummary from "../Pages/Dashboard/EarningsSummary/EarningsSummary";
 import RevenueMonitoring from "../Pages/Dashboard/RevenueMonitoring/RevenueMonitoring";
+import ServicesHistory from "../Pages/Dashboard/ServicesHistory/ServicesHistory";
 
 const router = createBrowserRouter([
   {
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
       {
         path: "payment_history",
         element: <PaymentHistory />,
+      },
+      {
+        path: "services-history",
+        element: <ServicesHistory />,
       },
       {
         path: "manage_decorators",

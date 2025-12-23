@@ -3,6 +3,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const AssignedTasks = () => {
   const { user } = useAuth();
@@ -103,7 +104,7 @@ const AssignedTasks = () => {
             {bookings.map((booking, i) => (
               <tr key={booking._id} className="bg-secondary text-white">
                 <th>{i + 1}</th>
-                <td>{booking.service_name}</td>
+                <td><Link className="hover:text-primary " to={`/services/${booking.servicesId}`}>{booking.service_name}</Link></td>
                 <td>${booking.cost}</td>
                 <td>${booking.cost * 0.7}</td>
                 <td>{booking.location}</td>
