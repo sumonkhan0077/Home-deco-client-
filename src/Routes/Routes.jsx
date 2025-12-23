@@ -29,6 +29,8 @@ import UsersManagement from "../Pages/Dashboard/UsersManagement/UsersManagement"
 import AdminRoute from "./AdminRoute";
 import AssignedTasks from "../Pages/Dashboard/AssignedTasks/AssignedTasks";
 import TodayTasks from "../Pages/Dashboard/TodayTasks/TodayTasks";
+import EarningsSummary from "../Pages/Dashboard/EarningsSummary/EarningsSummary";
+import RevenueMonitoring from "../Pages/Dashboard/RevenueMonitoring/RevenueMonitoring";
 
 const router = createBrowserRouter([
   {
@@ -132,6 +134,10 @@ const router = createBrowserRouter([
         element: <UsersManagement />,
       },
       {
+        path: "revenue-monitoring",
+        element: <RevenueMonitoring />,
+      },
+      {
         path: "payment-success",
         element: <PaymentSuccess />,
       },
@@ -146,6 +152,10 @@ const router = createBrowserRouter([
       {
         path: "today-tasks",
         element: <TodayTasks />,
+      },
+      {
+        path: "earnings-summary",
+        element: <EarningsSummary />,
       },
     ],
   },

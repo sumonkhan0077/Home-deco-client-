@@ -15,6 +15,7 @@ import {
   MdWorkOutline,
 } from "react-icons/md";
 import useRole from "../../Hooks/useRole/useRole";
+import { FaHandHoldingDollar, FaSackDollar } from "react-icons/fa6";
 
 const DashboardLayout = () => {
   const { role } = useRole();
@@ -197,6 +198,21 @@ const DashboardLayout = () => {
                     <span className="is-drawer-close:hidden">Analytics</span>
                   </NavLink>
                 </li>
+                {/* RevenueMonitoring */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Users Management"
+                    to="/dashboard/revenue-monitoring"
+                  >
+                    <FaSackDollar />
+
+
+                    <span className="is-drawer-close:hidden">
+                      Revenue Monitoring
+                    </span>
+                  </NavLink>
+                </li>
                 {/* users-management */}
                 <li>
                   <NavLink
@@ -236,8 +252,20 @@ const DashboardLayout = () => {
               >
                 <MdCalendarToday />
 
-
                 <span className="is-drawer-close:hidden">Today Tasks</span>
+              </NavLink>
+            </li>
+            {/* Earnings Summary */}
+            <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Earnings Summary"
+                to="/dashboard/earnings-summary"
+              >
+                <FaHandHoldingDollar />
+
+
+                <span className="is-drawer-close:hidden">Earnings Summary</span>
               </NavLink>
             </li>
 
