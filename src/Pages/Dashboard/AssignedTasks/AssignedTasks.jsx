@@ -42,7 +42,7 @@ const AssignedTasks = () => {
     enabled: !!user?.email,
     queryFn: async () => {
       const res = await axiosSecure.get(
-        `/bookings/decorator?email=${user?.email}&status=assign`
+        `/bookings/decorator?email=${user?.email}&serviceWorkStatus=assign`
       );
       return res.data;
     },
@@ -80,12 +80,12 @@ const AssignedTasks = () => {
 
   return (
     <div>
-      <h2 className="text-3xl mb-4">
+      <h2 className="text-3xl p-6 text-primary">
         Projects <span className="font-bold">({bookings.length})</span>
       </h2>
 
-      <div className="overflow-x-auto">
-        <table className="table table-zebra">
+      <div className="overflow-x-auto p-6">
+        <table className="table table-zebra bg-primary">
           <thead>
             <tr>
               <th>No</th>
@@ -101,7 +101,7 @@ const AssignedTasks = () => {
 
           <tbody>
             {bookings.map((booking, i) => (
-              <tr key={booking._id}>
+              <tr key={booking._id} className="bg-secondary text-white">
                 <th>{i + 1}</th>
                 <td>{booking.service_name}</td>
                 <td>${booking.cost}</td>
@@ -133,7 +133,7 @@ const AssignedTasks = () => {
                     </>
                   )}
 
-                  {booking.serviceWorkStatus === "planning" && (
+                  {/* {booking.serviceWorkStatus === "planning" && (
                     <button
                       onClick={() => updateStatus(booking, "working")}
                       className="btn btn-warning btn-sm"
@@ -155,7 +155,7 @@ const AssignedTasks = () => {
                     <span className="text-green-600 font-bold">
                       Completed ✅
                     </span>
-                  )}
+                  )} */}
                 </td>
               </tr>
             ))}

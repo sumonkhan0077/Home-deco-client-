@@ -7,11 +7,17 @@ import {
 } from "react-icons/io5";
 import { Link, NavLink, Outlet } from "react-router";
 import { FaRegEdit, FaRegHandshake, FaShoppingBag } from "react-icons/fa";
-import { MdJoinInner, MdOutlineAddCard, MdPayment } from "react-icons/md";
+import {
+  MdCalendarToday,
+  MdJoinInner,
+  MdOutlineAddCard,
+  MdPayment,
+  MdWorkOutline,
+} from "react-icons/md";
 import useRole from "../../Hooks/useRole/useRole";
 
 const DashboardLayout = () => {
-  const {role} =  useRole()
+  const { role } = useRole();
   return (
     <div className="drawer lg:drawer-open max-w-7xl mx-auto ">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -45,7 +51,7 @@ const DashboardLayout = () => {
           </div>
         </nav>
         {/* Page content here */}
-          
+
         <Outlet></Outlet>
       </div>
 
@@ -120,101 +126,118 @@ const DashboardLayout = () => {
               </NavLink>
             </li>
 
-            {
-                role === "admin" && <>
-                    {/* ------------------admin-------------------- */}
-            {/* manage-decorators */}
-            <li>
-              <NavLink
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Manage Decorators"
-                to="/dashboard/manage_decorators"
-              >
-                <IoPersonAdd />
+            {role === "admin" && (
+              <>
+                {/* ------------------admin-------------------- */}
+                {/* manage-decorators */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Manage Decorators"
+                    to="/dashboard/manage_decorators"
+                  >
+                    <IoPersonAdd />
 
-                <span className="is-drawer-close:hidden">
-                  Manage Decorators
-                </span>
-              </NavLink>
-            </li>
-            {/* manage-services */}
-            <li>
-              <NavLink
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Manage Services"
-                to="/dashboard/manage_services"
-              >
-                <FaRegEdit />
+                    <span className="is-drawer-close:hidden">
+                      Manage Decorators
+                    </span>
+                  </NavLink>
+                </li>
+                {/* manage-services */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Manage Services"
+                    to="/dashboard/manage_services"
+                  >
+                    <FaRegEdit />
 
-                <span className="is-drawer-close:hidden">Manage Services</span>
-              </NavLink>
-            </li>
-            {/*manage-bookings */}
-            <li>
-              <NavLink
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Manage Bookings"
-                to="/dashboard/manage_bookings"
-              >
-                <MdOutlineAddCard />
+                    <span className="is-drawer-close:hidden">
+                      Manage Services
+                    </span>
+                  </NavLink>
+                </li>
+                {/*manage-bookings */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Manage Bookings"
+                    to="/dashboard/manage_bookings"
+                  >
+                    <MdOutlineAddCard />
 
-                <span className="is-drawer-close:hidden">Manage Bookings</span>
-              </NavLink>
-            </li>
-            {/* assign-decorator */}
-            <li>
-              <NavLink
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Assign Decorator"
-                to="/dashboard/assign_decorator"
-              >
-                <MdJoinInner />
+                    <span className="is-drawer-close:hidden">
+                      Manage Bookings
+                    </span>
+                  </NavLink>
+                </li>
+                {/* assign-decorator */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Assign Decorator"
+                    to="/dashboard/assign_decorator"
+                  >
+                    <MdJoinInner />
 
-                <span className="is-drawer-close:hidden">Assign Decorator</span>
-              </NavLink>
-            </li>
-            {/* analytics */}
-            <li>
-              <NavLink
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Analytics"
-                to="/dashboard/analytics"
-              >
-                <IoAnalyticsSharp />
+                    <span className="is-drawer-close:hidden">
+                      Assign Decorator
+                    </span>
+                  </NavLink>
+                </li>
+                {/* analytics */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Analytics"
+                    to="/dashboard/analytics"
+                  >
+                    <IoAnalyticsSharp />
 
-                <span className="is-drawer-close:hidden">Analytics</span>
-              </NavLink>
-            </li>
-            {/* users-management */}
-            <li>
-              <NavLink
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Users Management"
-                to="/dashboard/users-management"
-              >
-                <FaRegHandshake />
+                    <span className="is-drawer-close:hidden">Analytics</span>
+                  </NavLink>
+                </li>
+                {/* users-management */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Users Management"
+                    to="/dashboard/users-management"
+                  >
+                    <FaRegHandshake />
 
+                    <span className="is-drawer-close:hidden">
+                      Users Management
+                    </span>
+                  </NavLink>
+                </li>
+              </>
+            )}
 
-                <span className="is-drawer-close:hidden">Users Management</span>
-              </NavLink>
-            </li>
-
-                </>
-            }
-              
-
-              {/* decoratiors routes */}
-              {/* users-management */}
+            {/* decorators routes */}
+            {/* Assigned Tasks */}
             <li>
               <NavLink
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="Assigned Tasks"
                 to="/dashboard/assigned-tasks"
               >
-                <FaRegHandshake />
-
+                <MdWorkOutline />
 
                 <span className="is-drawer-close:hidden">Assigned Tasks</span>
+              </NavLink>
+            </li>
+            {/* Today Tasks */}
+            <li>
+              <NavLink
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Today Tasks"
+                to="/dashboard/today-tasks"
+              >
+                <MdCalendarToday />
+
+
+                <span className="is-drawer-close:hidden">Today Tasks</span>
               </NavLink>
             </li>
 

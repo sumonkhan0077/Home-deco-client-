@@ -28,6 +28,7 @@ import BeADecorator from "../Pages/BeADecorator/BeADecorator";
 import UsersManagement from "../Pages/Dashboard/UsersManagement/UsersManagement";
 import AdminRoute from "./AdminRoute";
 import AssignedTasks from "../Pages/Dashboard/AssignedTasks/AssignedTasks";
+import TodayTasks from "../Pages/Dashboard/TodayTasks/TodayTasks";
 
 const router = createBrowserRouter([
   {
@@ -141,6 +142,10 @@ const router = createBrowserRouter([
       {
         path: "assigned-tasks",
         element: <AssignedTasks />,
+      },
+      {
+        path: "today-tasks",
+        element: <TodayTasks />,
       },
     ],
   },
