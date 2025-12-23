@@ -8,6 +8,7 @@ import Lottie from "lottie-react";
 import axios from "axios";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { toast } from "react-toastify";
+import AnimatedSection from "../../../Utility/AnimatedSection";
 
 const Register = () => {
   const [fbError, setFbError] = useState("");
@@ -66,6 +67,9 @@ const Register = () => {
   };
 
   return (
+    <>
+    <AnimatedSection variants="fadeUp">
+
     <div
       className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: "#fffaec" }}
@@ -211,6 +215,8 @@ const Register = () => {
         </div>
       </div>
     </div>
+      </AnimatedSection>
+    </>
   );
 };
 

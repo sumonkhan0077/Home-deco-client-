@@ -18,6 +18,7 @@ import useAuth from "../../Hooks/useAuth.jsx";
 import Loading from "../../Components/Loading/Loading.jsx";
 import SmoothScroll from "../../Utility/SmoothScroll.jsx";
 import AnimatedSection from "../../Utility/AnimatedSection.jsx";
+import ScrollToTopButton from "../../Utility/ScrollProgressButton.jsx";
 
 const Home = () => {
   const {loading} = useAuth();
@@ -27,6 +28,7 @@ const Home = () => {
   SmoothScroll()
   return (
     <div className="">
+      <ScrollToTopButton/>
       <AnimatedSection variant="fadeUp"> 
 
       <Header />

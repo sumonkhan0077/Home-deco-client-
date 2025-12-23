@@ -3,6 +3,8 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
+import Loading from "../../../Components/Loading/Loading";
+import AnimatedSection from "../../../Utility/AnimatedSection";
 
 const RevenueMonitoring = () => {
   const axiosSecure = useAxiosSecure();
@@ -16,11 +18,7 @@ const RevenueMonitoring = () => {
   });
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center py-20">
-        <span className="loading loading-spinner loading-lg text-primary"></span>
-      </div>
-    );
+    return<Loading></Loading>
   }
 
   // Total Income Calculation
@@ -64,12 +62,18 @@ const RevenueMonitoring = () => {
 
   return (
     <div className="p-6 bg-base-100 min-h-screen">
-      <h1 className="text-4xl font-bold text-primary text-center mb-10">
+      <AnimatedSection variants="fadeUp">
+
+      <h1 className="text-4xl font-bold text-primary text-center mb-4">
         Revenue Monitoring Dashboard
       </h1>
+      </AnimatedSection>
+
+
+   <AnimatedSection variant="fadeLeft">
 
       {/* Total Income Card */}
-      <div className="stats shadow w-full max-w-md mx-auto mb-12">
+      <div className="stats shadow w-full max-w-md mx-auto mb-18">
         <div className="stat place-items-center bg-primary text-white">
           <div className="stat-title text-white/80">Total Revenue</div>
           <div className="stat-value text-5xl">${totalIncome.toFixed(2)}</div>
@@ -78,6 +82,9 @@ const RevenueMonitoring = () => {
           </div>
         </div>
       </div>
+      </AnimatedSection>
+
+      <AnimatedSection variants="fadeUp">
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Pie Chart: Bookings by Category */}
@@ -131,7 +138,9 @@ const RevenueMonitoring = () => {
           )}
         </div>
       </div>
+      </AnimatedSection>
 
+       <AnimatedSection variants="fadeUp">
       {/* Summary Table (Optional - Small View) */}
       <div className="mt-12 overflow-x-auto">
         <h2 className="text-2xl font-semibold mb-4">All Completed Services</h2>
@@ -158,6 +167,8 @@ const RevenueMonitoring = () => {
           </tbody>
         </table>
       </div>
+
+      </AnimatedSection>
     </div>
   );
 };

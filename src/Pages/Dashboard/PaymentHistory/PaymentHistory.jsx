@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import { Link } from "react-router";
 import Loading from "../../../Components/Loading/Loading";
+import AnimatedSection from "../../../Utility/AnimatedSection";
 
 
 const PaymentHistory = () => {
@@ -33,12 +34,15 @@ const PaymentHistory = () => {
   return (
     <div>
       <div className="flex justify-between mx-6 my-6 ">
+        <AnimatedSection variants="fadeUp">
+
         <h2 className="text-3xl text-primary">
           {" "}
           Payment History <span className="font-bold">
             ({paymentHistory})
           </span>{" "}
         </h2>
+      </AnimatedSection>
         {/* type sort */}
         <div>
           <select className="select " onChange={(e) => setType(e.target.value)}>
@@ -49,6 +53,8 @@ const PaymentHistory = () => {
       </div>
       <div>
         <div className="overflow-x-auto p-4">
+          <AnimatedSection variants="fadeUp">
+
           <table className="table bg-primary  ">
             {/* head */}
             <thead>
@@ -84,6 +90,7 @@ const PaymentHistory = () => {
               ))}
             </tbody>
           </table>
+      </AnimatedSection>
         </div>
       </div>
     </div>

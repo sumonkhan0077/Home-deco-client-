@@ -6,6 +6,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import imagelogin from "../../../assets/login.json";
 import Lottie from "lottie-react";
 import { toast } from "react-toastify";
+import AnimatedSection from "../../../Utility/AnimatedSection";
 
 const Login = () => {
      const [fbError, setFbError] = useState(""); 
@@ -37,19 +38,27 @@ const Login = () => {
     <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#fffaec" }}>
       <div className="flex flex-col md:flex-row items-center max-w-7xl mx-auto py-12 px-4 gap-10">
         {/* ফর্ম সেকশন – ডার্ক ব্যাকগ্রাউন্ড */}
+     
+
         <div
           className="flex-1 rounded-3xl shadow-2xl p-8 md:p-10"
           style={{ backgroundColor: "#213943" }}
         >
+          <AnimatedSection variants="fadeUp">
+
           <h3 className="text-4xl font-bold text-center text-white">
             Welcome back
           </h3>
           <p className="text-center text-2xl mt-2" style={{ color: "#c55626" }}>
             Please Login
           </p>
+      </AnimatedSection>
+
 
           <form className="mt-8 space-y-6" onSubmit={handleSubmit(handleLogin)}>
             {/* Email */}
+            <AnimatedSection variants="fadeUp">
+
             <div>
               <label className="label font-medium text-white">Email</label>
               <input
@@ -97,16 +106,17 @@ const Login = () => {
                 </p>
               )}
             </div>
-
             <div className="text-right">
               <a className="link link-hover" style={{ color: "#c55626" }}>
                 Forgot password?
               </a>
             </div>
+      </AnimatedSection>
+
             {
               fbError && <p className="text-red-500">{fbError}</p>
             }
-
+<AnimatedSection variants="fadeUp">
             {/* Login Button */}
             <button
               type="submit"
@@ -127,17 +137,27 @@ const Login = () => {
                 Register
               </Link>
             </p>
+      </AnimatedSection>
+
 
           </form>
             <div className="mt-6">
+              <AnimatedSection variants="fadeUp">
+
               <SocialLogin />
+      </AnimatedSection>
             </div>
         </div>
+     
 
         {/* Lottie Animation – লগইনের জন্য তোমার imagelogin */}
+        
         <div className="flex-1 flex justify-center items-center">
           <div className="w-full max-w-md">
+            <AnimatedSection variants="fadeUp">
+
             <Lottie animationData={imagelogin} loop={true} />
+      </AnimatedSection>
           </div>
         </div>
       </div>

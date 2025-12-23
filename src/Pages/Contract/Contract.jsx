@@ -1,6 +1,7 @@
 import React from "react";
 import { FiMapPin } from "react-icons/fi";
 import { MdOutlineEmail, MdOutlineLocalPhone } from "react-icons/md";
+import AnimatedSection from "../../Utility/AnimatedSection";
 
 const Contract = () => {
   return (
@@ -9,15 +10,20 @@ const Contract = () => {
         <div
           className={` max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16`}
         >
+          <AnimatedSection variant="fadeLeft">
+
           {/* --- LEFT SIDE: Info & Context --- */}
           <div className="flex flex-col justify-center space-y-8">
             <div>
+              <AnimatedSection variant="fadeLeft">
+
               <span className="text-secondary font-normal uppercase tracking-wider text-sm mb-2 block">
                 Contact Support
               </span>
               <h1 className="text-4xl md:text-5xl font-normal text-primary  leading-none">
                 Let’s build something <br /> amazing together.
               </h1>
+      </AnimatedSection>
             </div>
 
             <div className="space-y-6">
@@ -59,6 +65,9 @@ const Contract = () => {
               </div>
             </div>
           </div>
+      </AnimatedSection>
+
+  <AnimatedSection variants="fadeRight">
 
           {/* --- RIGHT SIDE: Contact Form --- */}
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 sm:p-10">
@@ -133,6 +142,7 @@ const Contract = () => {
               </button>
             </form>
           </div>
+      </AnimatedSection>
         </div>
       </div>
     </div>

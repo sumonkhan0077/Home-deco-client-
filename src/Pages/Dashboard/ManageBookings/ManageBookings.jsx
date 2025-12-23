@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Link } from "react-router";
 import Loading from "../../../Components/Loading/Loading"
 import useAuth from "../../../Hooks/useAuth";
+import AnimatedSection from "../../../Utility/AnimatedSection";
 
 
 
@@ -23,12 +24,17 @@ const ManageBookings = () => {
   }
   return (
     <div className="mx-6 my-6">
+      <AnimatedSection variants="fadeUp">
+
       <h2 className="text-3xl  pb-6 text-primary">
         {" "}
         Bookings Items <span className="font-bold text-primary">({services.length})</span>{" "}
       </h2>
+      </AnimatedSection>
       <div>
         <div className="overflow-x-auto">
+          <AnimatedSection variants="fadeUp">
+
           <table className="table bg-primary text-white">
             {/* head */}
             <thead className="text-white">
@@ -77,6 +83,7 @@ const ManageBookings = () => {
               ))}
             </tbody>
           </table>
+      </AnimatedSection>
         </div>
       </div>
     </div>

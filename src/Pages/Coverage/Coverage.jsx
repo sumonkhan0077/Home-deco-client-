@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import { CiSearch } from "react-icons/ci";
+import AnimatedSection from "../../Utility/AnimatedSection"
 
 const position = [23.685, 90.3563];
 
@@ -65,6 +66,8 @@ const Coverage = () => {
   };
   return (
     <div className="text-4xl max-w-7xl mx-auto px-6 py-16 lg:px-8 lg:py-24">
+      <AnimatedSection variants="fadeUp">
+
       <div className=" mb-16 max-w-7xl mx-auto flex flex-col md:flex-row justify-between  md:items-center  gap-6 border-b border-primary/50 dark:border-white/10 pb-6">
         <div>
           <span className="text-secondary font-medium tracking-widest text-sm uppercase  flex items-center gap-2">
@@ -81,7 +84,10 @@ const Coverage = () => {
 
         {/* <hr /> */}
       </div>
+      </AnimatedSection>
       <div className="mb-6 -mt-10">
+        <AnimatedSection variants="fadeUp">
+
         {/* search  */}
         <form onSubmit={handleSearch}>
           <label className="input">
@@ -112,7 +118,10 @@ const Coverage = () => {
             <CiSearch />
           </button>
         </form>
+      </AnimatedSection>
       </div>
+      <AnimatedSection variants="fadeUp">
+
       <div className="border w-full h-[700px] border-16 border-secondary rounded-2xl">
         <MapContainer
           center={position}
@@ -150,6 +159,7 @@ const Coverage = () => {
           ))}
         </MapContainer>
       </div>
+      </AnimatedSection>
     </div>
   );
 };

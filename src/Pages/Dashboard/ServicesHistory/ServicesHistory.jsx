@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
 import Loading from "../../../Components/Loading/Loading";
+import AnimatedSection from "../../../Utility/AnimatedSection";
 
 const ServicesHistory = () => {
   const { user } = useAuth();
@@ -42,9 +43,12 @@ const ServicesHistory = () => {
 
   return (
     <div className="p-4 md:p-6">
+      <AnimatedSection variants="fadeUp">
+
       <h1 className="text-3xl font-bold text-primary mb-8 text-center">
         My Booked Services History ({services.length})
       </h1>
+      </AnimatedSection>
 
       {services.length === 0 ? (
         <div className="text-center py-16">
@@ -54,7 +58,9 @@ const ServicesHistory = () => {
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="table table-zebra w-full  shadow-xl">
+          <AnimatedSection variants="fadeUp">
+
+          <table className="table table-zebra w-full   shadow-xl">
             {/* Table Head */}
             <thead className="bg-primary text-white">
               <tr>
@@ -132,6 +138,7 @@ const ServicesHistory = () => {
               ))}
             </tbody>
           </table>
+      </AnimatedSection>
         </div>
       )}
     </div>

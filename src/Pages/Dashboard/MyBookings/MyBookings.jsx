@@ -6,6 +6,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Link } from "react-router";
 import Loading from "../../../Components/Loading/Loading";
+import AnimatedSection from "../../../Utility/AnimatedSection";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -75,24 +76,33 @@ const MyBookings = () => {
   return (
     <div>
       <div className="flex justify-between mx-6 my-6">
+        <AnimatedSection variants="fadeUp">
+
         <h2 className="text-3xl text-primary">
           {" "}
           My Bookings Items <span className="font-bold">
             ({totalBooking})
           </span>{" "}
         </h2>
+      </AnimatedSection>
         {/* type sort */}
+        <AnimatedSection variants="fadeUp">
+
         <div>
           <select className="select" onChange={(e) => setType(e.target.value)}>
             <option value="desc">New → Old</option>
             <option value="asc">Old → New</option>
           </select>
         </div>
+      </AnimatedSection>
       </div>
       <div>
         <div className="overflow-x-auto p-4">
+          <AnimatedSection variants="fadeUp">
+
           <table className="table bg-primary  ">
             {/* head */}
+            
             <thead>
               <tr>
                 <th>No</th>
@@ -148,6 +158,7 @@ const MyBookings = () => {
               ))}
             </tbody>
           </table>
+      </AnimatedSection>
         </div>
       </div>
     </div>

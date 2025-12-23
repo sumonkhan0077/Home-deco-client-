@@ -8,6 +8,7 @@ import { Link } from 'react-router';
 import CreateServices from './CreateServices';
 import UpdateServices from './UpdateServices';
 import Loading from '../../../Components/Loading/Loading';
+import AnimatedSection from '../../../Utility/AnimatedSection';
 
 const ManageServices = () => {
   const { user, loading } = useAuth();
@@ -63,18 +64,27 @@ const [search, setSearch] = useState("");
   return (
     <div>
       <div className="flex justify-between mx-6 my-6">
+        <AnimatedSection variants="fadeUp">
+
         <h2 className="text-3xl text-primary">
           My All Services Items <span className="font-bold">({services.length})</span>
         </h2>
+      </AnimatedSection>
         {/* <div>
           <select className="select" value={type} onChange={(e) => setType(e.target.value)}>
             <option value="desc">New → Old</option>
             <option value="asc">Old → New</option>
           </select>
         </div> */}
+        <AnimatedSection variants="fadeUp">
+
         <CreateServices  handleProductAdded={handleProductAdded } >
           </CreateServices>
+      </AnimatedSection>
       </div>
+
+      <AnimatedSection variant="fadeLeft">
+
       {/* search */}
       <div className='ml-4'>
       <div
@@ -107,8 +117,11 @@ const [search, setSearch] = useState("");
       </div>
 
       </div>
+      </AnimatedSection>
 
       <div className="overflow-x-auto p-4">
+        <AnimatedSection variants="fadeUp">
+
         <table className="table bg-primary">
           <thead>
             <tr>
@@ -148,6 +161,7 @@ const [search, setSearch] = useState("");
             ))}
           </tbody>
         </table>
+      </AnimatedSection>
       </div>
     </div>
   );

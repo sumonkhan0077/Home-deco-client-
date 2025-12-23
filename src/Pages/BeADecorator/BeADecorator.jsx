@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import AnimatedSection from '../../Utility/AnimatedSection';
 
 const BeADecorator = () => {
   const { user } = useAuth();
@@ -30,14 +31,19 @@ const BeADecorator = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-base-200 to-base-300 flex items-center justify-center px-4 py-12">
       <div className="card bg-base-100 shadow-2xl rounded-2xl overflow-hidden max-w-2xl w-full">
-        {/* Header */}
+        <AnimatedSection variants="fadeUp">
+
         <div className="bg-primary text-white py-8 px-6 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-2">Become a DecorNest</h1>
           <p className="text-lg opacity-90">Join StyleDecor and showcase your decoration skills!</p>
         </div>
+      </AnimatedSection>
+        {/* Header */}
 
         {/* Form */}
         <div className="card-body p-8 md:p-10">
+          <AnimatedSection variants="fadeUp">
+
           <form onSubmit={handleSubmit(handleDecorator)}>
               {/* Image URL + Preview */}
             <fieldset className="fieldset mt-8">
@@ -145,8 +151,7 @@ const BeADecorator = () => {
               </div>
             </div>
 
-          
-
+          <AnimatedSection variants="fadeUp">
             {/* Submit Button */}
             <button
               type="submit"
@@ -155,7 +160,11 @@ const BeADecorator = () => {
             >
               {isSubmitting ? 'Sending...' : 'Send Request'}
             </button>
+
+      </AnimatedSection>
+
           </form>
+      </AnimatedSection>
         </div>
       </div>
     </div>

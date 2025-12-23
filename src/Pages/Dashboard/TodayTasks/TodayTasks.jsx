@@ -4,6 +4,8 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
+import Loading from "../../../Components/Loading/Loading";
+import AnimatedSection from "../../../Utility/AnimatedSection";
 
 const TodayTasks = () => {
   const { user } = useAuth();
@@ -88,24 +90,26 @@ const TodayTasks = () => {
   };
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center py-20">
-        <span className="loading loading-spinner loading-lg text-primary"></span>
-      </div>
-    );
+    return <Loading></Loading>
   }
 
   return (
     <div className="p-4">
+      <AnimatedSection variant="fadeLeft">
+
       <h1 className="text-2xl font-bold text-primary mb-6">
         Today's Assigned Tasks ({todayTasks.length})
       </h1>
+      </AnimatedSection>
 
       {todayTasks.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-lg text-gray-600">No tasks assigned for today.</p>
         </div>
       ) : (
+        <>
+        <AnimatedSection variants="fadeUp">
+
         <div className="space-y-4">
           {todayTasks.map((booking) => {
             const statusInfo = getStatusInfo(booking.serviceWorkStatus);
@@ -177,6 +181,9 @@ const TodayTasks = () => {
             );
           })}
         </div>
+      </AnimatedSection>
+        
+        </>
       )}
     </div>
   );
