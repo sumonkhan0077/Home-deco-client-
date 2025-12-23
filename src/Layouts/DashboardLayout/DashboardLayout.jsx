@@ -134,8 +134,7 @@ const DashboardLayout = () => {
                 data-tip="Services History"
                 to="/dashboard/services-history"
               >
-               <MdOutlineWorkHistory />
-
+                <MdOutlineWorkHistory />
 
                 <span className="is-drawer-close:hidden">Services History</span>
               </NavLink>
@@ -221,7 +220,6 @@ const DashboardLayout = () => {
                   >
                     <FaSackDollar />
 
-
                     <span className="is-drawer-close:hidden">
                       Revenue Monitoring
                     </span>
@@ -246,43 +244,50 @@ const DashboardLayout = () => {
 
             {/* decorators routes */}
 
-            {/* Assigned Tasks */}
-            <li>
-              <NavLink
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Assigned Tasks"
-                to="/dashboard/assigned-tasks"
-              >
-                <MdWorkOutline />
+            {role === "decorator" && (
+              <>
+                {/* Assigned Tasks */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Assigned Tasks"
+                    to="/dashboard/assigned-tasks"
+                  >
+                    <MdWorkOutline />
 
-                <span className="is-drawer-close:hidden">Assigned Tasks</span>
-              </NavLink>
-            </li>
-            {/* Today Tasks */}
-            <li>
-              <NavLink
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Today Tasks"
-                to="/dashboard/today-tasks"
-              >
-                <MdCalendarToday />
+                    <span className="is-drawer-close:hidden">
+                      Assigned Tasks
+                    </span>
+                  </NavLink>
+                </li>
+                {/* Today Tasks */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Today Tasks"
+                    to="/dashboard/today-tasks"
+                  >
+                    <MdCalendarToday />
 
-                <span className="is-drawer-close:hidden">Today Tasks</span>
-              </NavLink>
-            </li>
-            {/* Earnings Summary */}
-            <li>
-              <NavLink
-                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Earnings Summary"
-                to="/dashboard/earnings-summary"
-              >
-                <FaHandHoldingDollar />
+                    <span className="is-drawer-close:hidden">Today Tasks</span>
+                  </NavLink>
+                </li>
+                {/* Earnings Summary */}
+                <li>
+                  <NavLink
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Earnings Summary"
+                    to="/dashboard/earnings-summary"
+                  >
+                    <FaHandHoldingDollar />
 
-
-                <span className="is-drawer-close:hidden">Earnings Summary</span>
-              </NavLink>
-            </li>
+                    <span className="is-drawer-close:hidden">
+                      Earnings Summary
+                    </span>
+                  </NavLink>
+                </li>
+              </>
+            )}
 
             {/* List item */}
             <li>
