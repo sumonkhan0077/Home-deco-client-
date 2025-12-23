@@ -2,18 +2,25 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Link } from "react-router";
+import Loading from "../../../Components/Loading/Loading"
+import useAuth from "../../../Hooks/useAuth";
 
 
 
 const ManageBookings = () => {
+  const { user, loading } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const { data: services = [] } = useQuery({
+  const { data: services = [], isLoading } = useQuery({
+    enabled: !loading && !!user,
     queryKey: ["bookings"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/bookings`);
       return res.data;
     },
   });
+  if(isLoading) {
+    return <Loading></Loading>
+  }
   return (
     <div className="mx-6 my-6">
       <h2 className="text-3xl  pb-6 text-primary">

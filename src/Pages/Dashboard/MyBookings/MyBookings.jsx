@@ -5,13 +5,16 @@ import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { Link } from "react-router";
+import Loading from "../../../Components/Loading/Loading";
 
 const MyBookings = () => {
   const { user } = useAuth();
   const [type, setType] = useState("");
   const [totalBooking, setTotalBooking] = useState(0);
   const axiosSecure = useAxiosSecure();
-  const { data: services = [], refetch } = useQuery({
+
+
+  const { data: services = [], isLoading, refetch } = useQuery({
     enabled: !!user?.email,
     queryKey: ["my-bookings", user?.email, type],
     queryFn: async () => {
@@ -64,6 +67,10 @@ const MyBookings = () => {
       const res = await axiosSecure.post('/payment-checkout-session', packageInfo)
       console.log(res.data)
       window.location.assign(res.data)
+  }
+
+  if(isLoading) {
+    return <Loading></Loading>
   }
   return (
     <div>

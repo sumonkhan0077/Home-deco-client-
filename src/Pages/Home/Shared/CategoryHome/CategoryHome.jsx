@@ -1,6 +1,8 @@
 import React from "react";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link } from "react-router";
+import useAuth from "../../../../Hooks/useAuth";
+import Loading from "../../../../Components/Loading/Loading";
 
 const cards = [
   {
@@ -47,6 +49,10 @@ const cards = [
   },
 ];
 const CategoryHome = () => {
+  const {loading} = useAuth();
+  if(loading){
+    return <Loading></Loading>
+  }
 
   const spanClasses = {
     5: "lg:col-span-5",

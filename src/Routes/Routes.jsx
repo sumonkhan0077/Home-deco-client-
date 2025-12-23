@@ -32,12 +32,14 @@ import TodayTasks from "../Pages/Dashboard/TodayTasks/TodayTasks";
 import EarningsSummary from "../Pages/Dashboard/EarningsSummary/EarningsSummary";
 import RevenueMonitoring from "../Pages/Dashboard/RevenueMonitoring/RevenueMonitoring";
 import ServicesHistory from "../Pages/Dashboard/ServicesHistory/ServicesHistory";
+import Loading from "../Components/Loading/Loading";
 
 const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <ErrorPage />,
     element: <MainLayouts />,
+    hydrateFallbackElement: <Loading/>,
     children: [
       {
         index: true,

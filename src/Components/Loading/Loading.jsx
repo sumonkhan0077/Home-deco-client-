@@ -8,7 +8,7 @@ const Loading = () => {
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="text-center mb-12"
       >
         {/* Simple Nest Icon (using SVG) */}
@@ -32,7 +32,7 @@ const Loading = () => {
               fill="none"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
             />
             {/* Leaves/Decor Elements */}
             <motion.circle cx="40" cy="50" r="8" fill="#10b981" opacity="0.8"

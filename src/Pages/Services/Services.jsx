@@ -4,26 +4,33 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
 import { FiFilter, FiX } from "react-icons/fi";
 import axios from "axios";
+import Loading from "../../Components/Loading/Loading";
+import useAuth from "../../Hooks/useAuth";
 
 const Services = () => {
   const axiosSecure = useAxiosSecure();
-  
+  const { loading } = useAuth();
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [minBudget, setMinBudget] = useState("");
   const [maxBudget, setMaxBudget] = useState("");
 
-
-  const { data: services = [] } = useQuery({
-        queryKey: ['services', search, selectedCategory, minBudget, maxBudget],
-        queryFn: async () => {
-            const res = await axiosSecure.get(`services?search=${search}&type=${selectedCategory}&min=${minBudget}&max=${maxBudget}`)
-            return res.data
-        }
-    })
-    console.log(services)
+  const { data: services = [], isLoading } = useQuery({
+    queryKey: ["services", search, selectedCategory, minBudget, maxBudget],
+    queryFn: async () => {
+      const res = await axiosSecure.get(
+        `services?search=${search}&type=${selectedCategory}&min=${minBudget}&max=${maxBudget}`
+      );
+      return res.data;
+    },
+  });
+  console.log(services);
   // Categories (your 6 home decor categories)
+
+  // if (loading) {
+  //   return <Loading></Loading>;
+  // }
   const categories = [
     "Home",
     "Wedding",
@@ -31,11 +38,9 @@ const Services = () => {
     "Seminar",
     "Office",
     "Meeting",
-    
   ];
 
   const handleApply = () => {
-   
     setIsOpen(false); // Close modal after apply
   };
 
@@ -65,7 +70,7 @@ const Services = () => {
               className="flex items-center w-96 bg-gray-50 border border-gray-200 rounded-lg p-1"
             >
               <input
-              onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search"
                 type="search"
                 required
@@ -186,69 +191,81 @@ const Services = () => {
             </div>
           </>
         </div>
+
+        
         {/* card */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
-          {services.map((top) => (
-            <div key={top._id} className="flex gap-4">
-              <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
-                {/* Card Image */}
-                <div className="relative aspect-square overflow-hidden bg-gray-100">
-                  <img
-                    src={top.image}
-                    alt={top.service_name}
-                   
-                    
-                    className="transition-transform w-full h-full object-cover duration-500 group-hover:scale-105"
-                  />
+        {isLoading ? (
+          <Loading></Loading>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+            {services.map((top) => (
+              <div key={top._id} className="flex gap-4">
+                <div className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col">
+                  {/* Card Image */}
+                  <div className="relative aspect-square overflow-hidden bg-gray-100">
+                    <img
+                      src={top.image}
+                      alt={top.service_name}
+                      className="transition-transform w-full h-full object-cover duration-500 group-hover:scale-105"
+                    />
 
-                  {/* Category Badge */}
-                  <span className="absolute top-3 left-2 px-3 py-1 rounded-full bg-white/5 backdrop-blur-xl  shadow-2xl backdrop-saturate-150 uppercase tracking-wide">
-                    {top.service_category}
-                  </span>
-                </div>
-                {/* Card Content */}
-                <div className="p-5 flex flex-col grow">
-                  <div className="grow">
-                    {/* Title */}
-                    <Link className="text-xl h-1/2 font-md text-secondary mb-2 group-hover:text-primary transition-colors">
-                      {top.service_name}
-                    </Link>
-
-                    {/* Short Description */}
-                    <p className="text-gray-500 text-base line-clamp-2 mb-4">
-                      {top.description}
-                    </p>
-                    <div className="flex text-xl font-md text-secondary">
-                      $
-                      <span>
-                        {" "}
-                        {top.costs[0]} - {top.costs[2]}/{" "}
-                      </span>{" "}
-                      <span className="text-sm mt-2 font-normal">
-                        {top.unit}
-                      </span>
-                    </div>
+                    {/* Category Badge */}
+                    <span className="absolute top-3 left-2 px-3 py-1 text-white rounded-full bg-secondary/90 backdrop-blur-xl  shadow-2xl backdrop-saturate-150 uppercase tracking-wide">
+                      {top.service_category}
+                    </span>
                   </div>
-                  {/* Price & Action */}
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div>
-                      Rating:{" "}
-                      <span className="text-yellow-600">{top.rating}</span>
-                    </div>
+                  {/* Card Content */}
+                  <div className="p-5 flex flex-col grow">
+                    <div className="grow">
+                      {/* Title */}
+                      <Link className="text-xl h-1/2 font-md text-secondary mb-2 group-hover:text-primary transition-colors">
+                        {top.service_name}
+                      </Link>
 
-                    {/* Details Button */}
-                    <Link
-                      to={`/services/${top._id}`}
-                      className="inline-flex items-center px-3 py-2 rounded-full bg-primary  text-white  border border-primary hover:bg-transparent  hover:text-primary transition-all duration-300"
-                    >
-                      View Details
-                    </Link>
+                      {/* Short Description */}
+                      <p className="text-gray-500 text-base line-clamp-2 mb-4">
+                        {top.description}
+                      </p>
+                      <div className="flex text-xl font-md text-secondary">
+                        $
+                        <span>
+                          {" "}
+                          {top.costs[0]} - {top.costs[2]}/{" "}
+                        </span>{" "}
+                        <span className="text-sm mt-2 font-normal">
+                          {top.unit}
+                        </span>
+                      </div>
+                    </div>
+                    {/* Price & Action */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <div>
+                        Rating:{" "}
+                        <span className="text-yellow-600">{top.rating}</span>
+                      </div>
+
+                      {/* Details Button */}
+                      <Link
+                        to={`/services/${top._id}`}
+                        className="inline-flex items-center px-3 py-2 rounded-full bg-primary  text-white  border border-primary hover:bg-transparent  hover:text-primary transition-all duration-300"
+                      >
+                        View Details
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        )}
+
+          {/* No data */}
+      {services.length === 0 && (
+        <div className="text-center py-20 text-gray-500">
+          No services found 😕<br />
+          Try again
         </div>
+      )}
       </div>
     </div>
   );

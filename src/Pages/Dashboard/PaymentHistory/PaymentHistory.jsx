@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import { Link } from "react-router";
+import Loading from "../../../Components/Loading/Loading";
 
 
 const PaymentHistory = () => {
@@ -12,7 +13,7 @@ const PaymentHistory = () => {
   const [paymentHistory, setPaymentHistory] = useState(0);
 
 
-  const { data: services = [],} = useQuery({
+  const { data: services = [], isLoading} = useQuery({
     enabled: !!user?.email,
     queryKey: ["payment-success", user?.email, type],
     queryFn: async () => {
@@ -23,6 +24,10 @@ const PaymentHistory = () => {
       return res.data.result;
     },
   });
+
+  if(isLoading) {
+    return <Loading></Loading>
+  }
 
  
   return (

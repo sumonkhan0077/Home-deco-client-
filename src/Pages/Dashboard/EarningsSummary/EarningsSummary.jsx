@@ -2,11 +2,13 @@ import React from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useAuth from "../../../Hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
+import Loading from "../../../Components/Loading/Loading";
 
 const EarningsSummary = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
-  const { data: services = [] } = useQuery({
+
+  const { data: services = [], isLoading } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(
@@ -15,6 +17,9 @@ const EarningsSummary = () => {
       return res.data;
     },
   });
+  if(isLoading) {
+    return <Loading></Loading>
+  }
   return (
     <div className="p-6">
       <h2 className="text-3xl text-primary py-4">

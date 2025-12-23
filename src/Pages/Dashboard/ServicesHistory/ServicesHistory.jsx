@@ -3,6 +3,7 @@ import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
+import Loading from "../../../Components/Loading/Loading";
 
 const ServicesHistory = () => {
   const { user } = useAuth();
@@ -36,11 +37,7 @@ const ServicesHistory = () => {
   };
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center py-20">
-        <span className="loading loading-spinner loading-lg text-primary"></span>
-      </div>
-    );
+    return <Loading></Loading>
   }
 
   return (

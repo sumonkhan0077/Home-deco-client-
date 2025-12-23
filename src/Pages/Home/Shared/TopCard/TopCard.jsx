@@ -3,8 +3,12 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 import { Link } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
+import useAuth from "../../../../Hooks/useAuth";
+import Loading from "../../../../Components/Loading/Loading";
 
 const TopCard = () => {
+  const {loading} = useAuth();
+  
   const axiosSecure = useAxiosSecure();
   const { data: top_rating = [] } = useQuery({
     queryKey: ["top_rating"],
@@ -14,6 +18,9 @@ const TopCard = () => {
     },
   });
   console.log(top_rating);
+  if(loading){
+    return <Loading></Loading>
+  }
   return (
     <div className="max-w-7xl mx-auto px-6 mb-20 lg:px-8 ">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 border-b border-primary/50 dark:border-white/10 pb-8">
@@ -51,7 +58,7 @@ const TopCard = () => {
                 />
 
                 {/* Category Badge */}
-                <span className="absolute top-3 left-2 px-3 py-1 rounded-full bg-white/5 backdrop-blur-xl  shadow-2xl backdrop-saturate-150 uppercase tracking-wide">
+                <span className="absolute top-3 left-2 px-3 py-1 rounded-full text-white bg-secondary/90 backdrop-blur-xl  shadow-2xl backdrop-saturate-150 uppercase tracking-wide">
                   {top.service_category}
                 </span>
               </div>

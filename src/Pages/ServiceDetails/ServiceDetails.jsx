@@ -61,7 +61,7 @@ const ServiceDetails = () => {
                         icon: "success",
                         draggable: false
                     });
-                    // navigate('/dashboard/my_booking')
+                    navigate('/dashboard/my_booking')
                 }
             })
             .catch(err => console.log(err))

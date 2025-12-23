@@ -1,21 +1,26 @@
 import React, { useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { FaTrashAlt, FaUserCheck, FaUserTimes } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import useAuth from "../../../Hooks/useAuth";
+import Loading from "../../../Components/Loading/Loading"
 import { toast } from "react-toastify";
+import useAuth from "../../../Hooks/useAuth";
 const AssignDecorator = () => {
   const [selectedBooking, setSelectedBooking] = useState(null);
   const axiosSecure = useAxiosSecure();
   const decoratorModalRef = useRef();
-  const { data: bookings = [], refetch: bookingRefetch } = useQuery({
+  const { user, loading } = useAuth();
+
+  const { data: bookings = [], isLoading, refetch: bookingRefetch } = useQuery({
+    enabled: !loading && !!user,
     queryKey: ["bookings", "pending"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/bookings?serviceWorkStatus=pending`);
       return res.data;
     },
   });
+
+  
 
   // finding the decorator
   const { data: decorators = [], refetch: decoratorRefetch } = useQuery({
@@ -28,6 +33,11 @@ const AssignDecorator = () => {
       return res.data;
     },
   });
+
+   if(isLoading) {
+    return <Loading></Loading>
+  }
+
 
   const handleFindDecorator = (booking) => {
     setSelectedBooking(booking);
@@ -53,13 +63,20 @@ const AssignDecorator = () => {
   };
   console.log(bookings);
 
+ 
+
   return (
     <div className="mt-5 p-5">
       {" "}
-      <div >
-        <h1 className="pb-4 text-3xl text-primary">Bookings ({bookings?.length})</h1>
+      <div>
+        <h1 className="pb-4 text-3xl text-primary">
+          Bookings ({bookings?.length})
+        </h1>
         <div>
           <div className="overflow-x-auto">
+            {
+              isLoading? (<Loading></Loading>): (
+
             <table className="table table-zebra bg-primary ">
               {/* head */}
               <thead className="">
@@ -94,6 +111,8 @@ const AssignDecorator = () => {
                 ))}
               </tbody>
             </table>
+              )
+            }
           </div>
         </div>
         {/* modal*/}

@@ -7,15 +7,16 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router';
 import CreateServices from './CreateServices';
 import UpdateServices from './UpdateServices';
+import Loading from '../../../Components/Loading/Loading';
 
 const ManageServices = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 //   const [type, setType] = useState("desc");
 const [search, setSearch] = useState("");
   const axiosSecure = useAxiosSecure();
 
-  const { data: services = [], refetch , } = useQuery({
-    enabled: !!user?.email,
+  const { data: services = [], isLoading, refetch , } = useQuery({
+    enabled: !!user?.email ,
     queryKey: ["services",  search, ],
     queryFn: async () => {
       const res = await axiosSecure.get(`/services?search=${search}`);
@@ -23,6 +24,12 @@ const [search, setSearch] = useState("");
     },
   });
   console.log(services)
+
+ 
+    if(isLoading) {
+    return <Loading></Loading>
+  }
+
 
   const handleProductAdded = () => {
     refetch();

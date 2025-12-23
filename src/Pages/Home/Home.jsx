@@ -14,8 +14,14 @@ import QuestionAnswer from "./Shared/QuestionAnswer/QuestionAnswer.jsx";
 import TopEventer from "./Shared/TopEventer/TopEventer.jsx";
 import MapShow from "./Shared/MapShow/MapShow.jsx";
 import Header from "./Shared/Header/Header.jsx";
+import useAuth from "../../Hooks/useAuth.jsx";
+import Loading from "../../Components/Loading/Loading.jsx";
 
 const Home = () => {
+  const {loading} = useAuth();
+  if(loading){
+    return <Loading></Loading>
+  }
   return (
     <div className="">
       <Header />
