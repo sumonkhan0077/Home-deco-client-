@@ -4,6 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -107,7 +108,8 @@ const MyBookings = () => {
                       src={service.image}
                       alt="package image"
                     />
-                    {service.service_name}
+                    <Link className="hover:text-primary" to={`/services/${service.servicesId}`}>{service.service_name}</Link>
+                    
                   </td>
                   <td>{service.cost}</td>
                   <td>{new Date(service.event_date).toLocaleDateString()}</td>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
+import { Link } from "react-router";
 
 
 const PaymentHistory = () => {
@@ -63,7 +64,7 @@ const PaymentHistory = () => {
                   <th>{i + 1}</th>
                   <td className="font-normal flex flex-col lg:flex-row gap-2">
                    
-                    {service.service_name}
+                    <Link className="hover:text-primary" to={`/services/${service.servicesId}`}>{service.service_name}</Link>
                   </td>
                   <td>{service.amount}</td>
                   <td>{new Date(service.paidAt).toLocaleDateString()}</td>
