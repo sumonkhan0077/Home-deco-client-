@@ -112,40 +112,29 @@ DecorNest features a secure and seamless payment system powered by **Stripe**, a
 
 
 ## 📂 Project Structure
-
+### Client (`client/`)
+```
 client/
-├── public/                  # Static assets (favicon, index.html)
 ├── src/
-│   ├── Components/          # Reusable UI components (e.g., Loading, Navbar, Footer)
-│   ├── Hooks/               # Custom hooks
-│   │   ├── useAuth.jsx      # Authentication state & user info
-│   │   └── useAxiosSecure.jsx # Axios instance with JWT interceptor
+│   ├── Components/       # Reusable UI components
+│   ├── Hooks/            # Custom hooks (useAuth, useAxiosSecure)
 │   ├── Pages/
-│   │   ├── Dashboard/       # Protected dashboard pages
-│   │   │   ├── ManageServices.jsx     # CRUD for services
-│   │   │   ├── ManageDecorators.jsx   # Approve/reject decorator applications
-│   │   │   ├── CreateServices.jsx     # Add new service form/modal
-│   │   │   ├── UpdateServices.jsx     # Edit service form/modal
-│   │   │   └── ...                    # Other dashboard pages (e.g., PaymentHistory)
-│   │   ├── Services/        # Public-facing pages
-│   │   │   ├── Services.jsx # Service listing with search & filters
-│   │   │   └── ServiceDetails.jsx # Individual service page
-│   │   └── Home/            # Landing page components
-│   ├── Utility/             # Helper components & utilities
-│   │   ├── AnimatedSection.jsx # Framer Motion / AOS wrapper
-│   │   └── SmoothScroll.jsx    # Smooth scrolling utility
-│   ├── App.jsx              # Main app with routes
-│   ├── main.jsx             # React entry point
-│   └── index.css            # Global styles (Tailwind imports)
-├── vite.config.js           # Vite configuration
-├── tailwind.config.js       # Tailwind CSS config
-└── package.json
-
+│   │   ├── Dashboard/    # Admin & decorator dashboard pages
+│   │   │   ├── ManageServices.jsx
+│   │   │   ├── ManageDecorators.jsx
+│   │   │   └── ...
+│   │   └── Services/     # Public service listing pages
+│   ├── Utility/          # Animation & utility components
+│   └── ...
+└── ...
+```
+### Server (`server/`)
+```
 server/
 ├── routes/ # API routes
 ├── controllers/ # Business logic
 ├── models/ # MongoDB schemas
-
+```
 ---
 
 ## 🔌 Key API Endpoints
