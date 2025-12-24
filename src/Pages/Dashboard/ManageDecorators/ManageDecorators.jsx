@@ -52,8 +52,9 @@ const ManageDecorators = () => {
   };
   return (
     <div>
+       <title>DecorNest-Dashboard-Decorator Apply</title>
       <div>
-        <AnimatedSection variants="fadeUp">
+        <AnimatedSection variant="fadeUp">
 
         <h2 className="text-3xl px-6 pt-4 pb-4 text-primary">
           {" "}

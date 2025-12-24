@@ -43,6 +43,7 @@ const ServicesHistory = () => {
 
   return (
     <div className="p-4 md:p-6">
+       <title>DecorNest-Dashboard-My Services</title>
       <AnimatedSection variants="fadeUp">
 
       <h1 className="text-3xl font-bold text-primary mb-8 text-center">

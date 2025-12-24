@@ -74,6 +74,7 @@ const Register = () => {
       className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       style={{ backgroundColor: "#fffaec" }}
     >
+      <title>DecorNest-Registration</title>
       <div className="flex flex-col md:flex-row items-center max-w-7xl mx-auto py-12 px-4 gap-10">
         <div
           className="flex-1 rounded-3xl shadow-2xl p-8 md:p-10"

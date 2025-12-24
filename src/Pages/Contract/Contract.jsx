@@ -7,6 +7,7 @@ const Contract = () => {
   return (
     <div>
       <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center ">
+        <title>DecorNest-Contract</title>
         <div
           className={` max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16`}
         >

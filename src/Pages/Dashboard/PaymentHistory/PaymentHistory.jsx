@@ -33,6 +33,7 @@ const PaymentHistory = () => {
  
   return (
     <div>
+       <title>DecorNest-Dashboard-Payment  History</title>
       <div className="flex justify-between mx-6 my-6 ">
         <AnimatedSection variants="fadeUp">
 

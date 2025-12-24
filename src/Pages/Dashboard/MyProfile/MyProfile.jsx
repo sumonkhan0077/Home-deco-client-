@@ -11,7 +11,7 @@ const MyProfile = () => {
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-base-100 to-base-200">
-        
+         <title>DecorNest-Dashboard-My Profile</title>
       <div className="container mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

@@ -22,6 +22,7 @@ const DashboardLayout = () => {
   const { role } = useRole();
   return (
     <div className="drawer lg:drawer-open max-w-7xl mx-auto ">
+      <title>DecorNest-Dashboard</title>
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
         {/* Navbar */}

@@ -28,6 +28,7 @@ const Home = () => {
   SmoothScroll()
   return (
     <div className="">
+      <title>DecorNest-Home</title>
       <ScrollToTopButton/>
       <AnimatedSection variant="fadeUp"> 
 

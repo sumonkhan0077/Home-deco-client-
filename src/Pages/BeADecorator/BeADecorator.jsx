@@ -30,6 +30,7 @@ const BeADecorator = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-base-200 to-base-300 flex items-center justify-center px-4 py-12">
+      <title>DecorNest-De A decorator</title>
       <div className="card bg-base-100 shadow-2xl rounded-2xl overflow-hidden max-w-2xl w-full">
         <AnimatedSection variants="fadeUp">
 

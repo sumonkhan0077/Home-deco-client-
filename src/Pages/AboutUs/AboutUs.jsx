@@ -5,6 +5,7 @@ import Logo from '../../Components/Logo/Logo';
 const About = () => {
   return (
     <section className="py-16 md:py-24 bg-[#FFFAEC] overflow-hidden">
+      <title>DecorNest-About Us</title>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12">

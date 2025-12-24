@@ -63,6 +63,7 @@ const Services = () => {
   };
   return (
     <div>
+      <title>DecorNest-All Services</title>
       <div className="max-w-7xl mx-auto px-6 mb-20 lg:px-8 mt-14">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 border-b border-primary/50 dark:border-white/10 pb-8">
           <div className="max-w-2xl">

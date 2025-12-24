@@ -21,7 +21,7 @@ const [search, setSearch] = useState("");
     queryKey: ["services",  search, ],
     queryFn: async () => {
       const res = await axiosSecure.get(`/services?search=${search}`);
-      return res.data; 
+      return res.data.result; 
     },
   });
   console.log(services)

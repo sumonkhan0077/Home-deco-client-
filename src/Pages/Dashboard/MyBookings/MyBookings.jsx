@@ -86,6 +86,7 @@ const MyBookings = () => {
   return (
     <>
     <div>
+       <title>DecorNest-Dashboard-My Booking</title>
       <div className="flex justify-between mx-6 my-6">
         <AnimatedSection variants="fadeUp">
           <h2 className="text-3xl text-primary">
