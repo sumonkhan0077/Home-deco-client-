@@ -1,16 +1,56 @@
-# React + Vite
+# 🏡 Style Decor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Style Decor একটি আধুনিক Home Decor সার্ভিস ভিত্তিক ওয়েব অ্যাপ্লিকেশন। এখানে ইউজাররা বিভিন্ন ডেকোরেশন সার্ভিস দেখতে, বুক করতে এবং সহজেই ম্যানেজ করতে পারে। সুন্দর UI, স্মুথ ইউজার এক্সপেরিয়েন্স এবং রিয়েল লাইফ ইউজ কেস মাথায় রেখে এই প্রজেক্টটি তৈরি করা হয়েছে।
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Website
 
-## React Compiler
+🔗 Live Site:  
+https://decor-nest.netlify.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔗 Backend API:  
+https://home-deco-server.vercel.app/
 
-## Expanding the ESLint configuration
+🔗 Backend Github:  
+https://github.com/sumonkhan0077/home-deco-server
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- Home Decor সার্ভিস লিস্ট দেখা  
+- User Authentication (Login / Register)  
+- User Dashboard  
+- Admin & Decorator Role Management  
+- Booking & Order Management  
+- Dark / Light Mode  
+- Fully Responsive Design  
+- Scroll To Top Button  
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+- React.js  
+- Tailwind CSS  
+- DaisyUI  
+- React Router DOM  
+- Framer Motion  
+- React Icons  
+- Axios  
+
+### Backend
+- Node.js  
+- Express.js  
+- MongoDB  
+- Mongoose  
+- JWT (JSON Web Token)  
+
+### Authentication
+- Firebase Authentication  
+
+---
+
+## 📁 Project Structure (Frontend)
+

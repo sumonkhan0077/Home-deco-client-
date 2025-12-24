@@ -34,7 +34,7 @@ export default function AnimatedSection({
   variant = "fadeUp",
   delay = 0,
   className = "",
-  once = false, // ডিফল্ট true
+  once = true, 
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: "-30px" });
