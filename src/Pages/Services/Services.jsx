@@ -27,7 +27,7 @@ const Services = () => {
     queryKey: ["services", search, selectedCategory, minBudget, maxBudget, limit, currentPage, skip],
     queryFn: async () => {
       const res = await axiosSecure.get(
-        `services?search=${search}&type=${selectedCategory}&min=${minBudget}&max=${maxBudget}`
+        `services?search=${search}&type=${selectedCategory}&min=${minBudget}&max=${maxBudget}&limit=${limit}&skip=${skip}`
       );
       setTotalServices(res.data.totalServices);
       setTotalPage(Math.ceil(res.data.totalServices / limit));
@@ -289,7 +289,7 @@ const Services = () => {
       )}
       </div>
        {/* pagination  */}
-      {/* {services.length !== 0 && (
+      {services.length !== 0 && (
         <>
           <div className="flex gap-2 flex-wrap container mb-10 mx-auto justify-center">
             {currentPage > 0 && (
@@ -319,7 +319,7 @@ const Services = () => {
             )}
           </div>
         </>
-      )} */}
+      )}
     </div>
   );
 };
