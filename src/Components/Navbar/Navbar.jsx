@@ -64,7 +64,9 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="navbar  sticky top-0 z-500 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white/5 backdrop-blur-xl  shadow-xl backdrop-saturate-150">
+    <div className="sticky top-0 z-500 bg-white/5 backdrop-blur-xl  shadow-xl backdrop-saturate-150">
+
+      <div className="navbar  sticky  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="navbar-start">
           <div className="dropdown ">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -114,6 +116,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
+    </div>
     </>
   );
 };
