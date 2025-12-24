@@ -17,14 +17,21 @@ const Services = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [minBudget, setMinBudget] = useState("");
   const [maxBudget, setMaxBudget] = useState("");
+  const [totalServices, setTotalServices] = useState(0);
+   const [currentPage, setCurrentPage] = useState(0);
+    const [totalPage, setTotalPage] = useState(0);
+    const limit = 12;
+    let skip = limit * currentPage;
 
   const { data: services = [], isLoading } = useQuery({
-    queryKey: ["services", search, selectedCategory, minBudget, maxBudget],
+    queryKey: ["services", search, selectedCategory, minBudget, maxBudget, limit, currentPage, skip],
     queryFn: async () => {
       const res = await axiosSecure.get(
         `services?search=${search}&type=${selectedCategory}&min=${minBudget}&max=${maxBudget}`
       );
-      return res.data;
+      setTotalServices(res.data.totalServices);
+      setTotalPage(Math.ceil(res.data.totalServices / limit));
+      return res.data.result;
     },
   });
   console.log(services);
@@ -281,6 +288,38 @@ const Services = () => {
         </div>
       )}
       </div>
+       {/* pagination  */}
+      {/* {services.length !== 0 && (
+        <>
+          <div className="flex gap-2 flex-wrap container mb-10 mx-auto justify-center">
+            {currentPage > 0 && (
+              <button
+                onClick={() => setCurrentPage(currentPage - 1)}
+                className="btn btn-secondary font-normal"
+              >
+                Prev
+              </button>
+            )}
+            {[...Array(totalPage).keys()].map((item) => (
+              <button
+                key={item}
+                onClick={() => setCurrentPage(item)}
+                className={`btn ${currentPage === item && "btn-primary"}`}
+              >
+                {item + 1}
+              </button>
+            ))}
+            {currentPage < totalPage - 1 && (
+              <button
+                onClick={() => setCurrentPage(currentPage + 1)}
+                className="btn btn-secondary font-normal"
+              >
+                Next
+              </button>
+            )}
+          </div>
+        </>
+      )} */}
     </div>
   );
 };
