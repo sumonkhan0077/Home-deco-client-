@@ -42,7 +42,7 @@ const Header = () => {
                 <AnimatedSection variant="fadeUp">
                   
                 <Link
-                  to="/about" // Fixed: Add path
+                  to="/about-us"
                   className="inline-flex items-center text-xl gap-2 main-btn2"
                 >
                   About Us

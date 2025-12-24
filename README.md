@@ -1,7 +1,5 @@
 # DecorNest – Event Decoration Service Marketplace
 
-![DecorNest Banner](https://via.placeholder.com/1200x600/6E48AA/ffffff?text=DecorNest+-+Beautiful+Event+Decoration+Services)
-
 **DecorNest** is a modern full-stack MERN application that connects customers with professional event decorators. Users can easily browse, search, and filter decoration services for weddings, birthdays, parties, corporate events, home setups, office meetings, and more.
 
 **Live Demo**: [https://decor-nest.netlify.app/](https://decor-nest.netlify.app/)  
@@ -12,6 +10,9 @@
 **Tech Stack**: MERN (MongoDB, Express, React, Node.js)
 
 ---
+
+![Banner](/src/assets/banner.png)
+
 
 ## ✨ Features
 
